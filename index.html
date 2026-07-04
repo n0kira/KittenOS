@@ -46,11 +46,38 @@
         </div>
     </div>
 
+    <!-- Paw Pics App -->
+
+    <div class="window" id="pawPics">
+        <div class="windowHeader" id="pawPicsHeader">
+            <p style="margin-left: 10px;"><b>PawPics</b></p>
+            <button class="closeButton" id="pawPicsClose" style="margin-right: 10px;"></button>
+        </div>
+        <div style="text-align: center;">
+            <h2>Welcome to PawPics!</h2>
+            <p>
+                PawPics is the best social network for cats :)
+                <br>
+                Take a break and enjoy all these cute kittens, scroll through the pictures and have the time of your life!
+            </p>
+        </div>
+        <div id="pawPicsContainer">
+            <button class="pawPicsBtn" id="pawPicsPrev"><img class="pawBtnImg" src="img/arrow.png" alt="" width="30px" style="rotate: -90deg;"></button>
+            <img id="pawPicsSlot" src="img/kitties/kit1.jpg" alt="Amazing Cat Picture" width="500px" height="450px">
+            <button class="pawPicsBtn" id="pawPicsNext"><img class="pawBtnImg" src="img/arrow.png" alt="" width="30px" style="rotate: 90deg;"></button>
+        </div>
+    </div>
+
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px;">
-        <div class="icon" onclick="handleIconTap(this)">
+        <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
             <img src="img/PawNotes.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Notes</p>
+        </div>
+
+        <div class="icon" onclick="handleIconTap(this, pawPicsScreen)" style="width: 80px;">
+            <img src="img/PawPics.png" width="64px" style="border-radius: 12px;">
+            <p style="margin: 0px;">Paw Pics</p>
         </div>
     </div>
 

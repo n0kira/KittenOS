@@ -38,7 +38,13 @@ function dragElement(element) {
         initialX = e.clientX;
         initialY = e.clientY;
 
-        element.style.top = (element.offsetTop - currentY) + "px";
+        var top = element.offsetTop - currentY;
+        
+        if (top < 230) {
+            top = 230;
+        }
+
+        element.style.top = top + "px";
         element.style.left = (element.offsetLeft - currentX) + "px";
     }
 
@@ -58,6 +64,9 @@ var welcomeScreenOpen = document.getElementById('welcomeOpen');
 
 var pawNotesScreen = document.getElementById('pawNotes');
 var pawNotesScreenClose = document.getElementById('pawNotesClose');
+
+var pawPicsScreen =  document.getElementById('pawPics');
+var pawPicsScreenClose = document.getElementById('pawPicsClose');
 
 function closeWindow(element) {
     element.style.display = "none";
@@ -79,7 +88,11 @@ welcomeScreenOpen.addEventListener("click", function() {
 })
 
 pawNotesScreenClose.addEventListener("click", () => {
-    closeWindow(pawNotesScreen)
+    closeWindow(pawNotesScreen);
+});
+
+pawPicsScreenClose.addEventListener("click", () => {
+    closeWindow(pawPicsScreen);
 });
 
 
@@ -92,14 +105,19 @@ function selectIcon(element) {
 }
 
 function deselectIcon(element) {
+    if (!element) return;
     element.classList.remove("selected");
     selectedIcon = undefined;
 }
 
-function handleIconTap(element) {
+function handleIconTap(element, appName) {
     if (element.classList.contains("selected")) {
         deselectIcon(element);
-        openWindow(pawNotesScreen);
+        if(appName) {
+            openWindow(appName);
+        } else {
+            console.log("Cant open app: " + appName);
+        }
     } else {
         selectIcon(element);
     }
@@ -130,6 +148,7 @@ function initializeWindow(elementName) {
 
 initializeWindow("welcome");
 initializeWindow("pawNotes");
+initializeWindow("pawPics");
 
 
 var content = [
@@ -225,4 +244,33 @@ function addToSideBar(index) {
 
 for (let i = 0; i < content.length; i++) {
     addToSideBar(i)
+}
+
+
+var nextImgBtn = document.getElementById('pawPicsNext');
+var prevImgBtn = document.getElementById('pawPicsPrev');
+var picSlot = document.getElementById('pawPicsSlot');
+
+var kittenImgs = 9;
+var currentImg = 1;
+
+nextImgBtn.addEventListener("click", showNextPic);
+prevImgBtn.addEventListener("click", showPrevPic);
+
+function showNextPic() {
+    if (currentImg < kittenImgs) {
+        currentImg++;
+    } else {
+        currentImg = 1;
+    }
+    picSlot.src = 'img/kitties/kit'+currentImg+'.jpg';
+}
+
+function showPrevPic() {
+    if (currentImg > 1) {
+        currentImg--;
+    } else {
+        currentImg = kittenImgs;
+    }
+    picSlot.src = 'img/kitties/kit'+currentImg+'.jpg';
 }
