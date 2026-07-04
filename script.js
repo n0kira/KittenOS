@@ -39,13 +39,26 @@ function dragElement(element) {
         initialY = e.clientY;
 
         var top = element.offsetTop - currentY;
+        var left = element.offsetLeft - currentX;
         
         if (top < 230) {
             top = 230;
         }
 
+        if (top > window.innerHeight - 155) {
+            top = window.innerHeight - 155;
+        }
+
+        if (left > window.innerWidth - 300 ) {
+            left = window.innerWidth - 300;
+        }
+
+        if (left < 300) {
+            left = 300;
+        }
+
         element.style.top = top + "px";
-        element.style.left = (element.offsetLeft - currentX) + "px";
+        element.style.left = left + "px";
     }
 
     function stopDragging() {
