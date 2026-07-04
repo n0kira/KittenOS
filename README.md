@@ -1,6 +1,5 @@
 # KittenOS
-Web based OS cat themed!
-
+A cat themed WebOS build with HTML, CSS and JS!
 ![KittenOS Logo](img/kittenOsPreview)
 
 ## What is it?
