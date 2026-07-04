@@ -1,4 +1,7 @@
 # KittenOS
-This is a WebOS. I built this following the guide provided by Hack Club!
+Web based OS cat themed!
 
-It is built using HTML, CSS and JS.
+![KittenOS Logo](img/kittenOsPreview)
+
+## What is it?
+KittyOS is a WebOS built just for your cat.
