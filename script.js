@@ -89,7 +89,6 @@ function openWindow(element) {
     element.style.display = "block";
     biggestIndex++;
     element.style.zIndex = biggestIndex;
-    topbar.style.zIndex = biggestIndex+1;
 }
 
 welcomeScreenClose.addEventListener("click", function() {
@@ -148,7 +147,6 @@ function addWindowTapHandling(element) {
 function handleWindowTap(element) {
     biggestIndex++;
     element.style.zIndex = biggestIndex;
-    topbar.style.zIndex = biggestIndex+1;
     deselectIcon(selectedIcon);
 }
 
