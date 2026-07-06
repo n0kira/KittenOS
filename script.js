@@ -1,15 +1,33 @@
 // Function to update the time each second'
 function updateTime() {
-    document.getElementById('time').innerHTML = new Date().toLocaleString();;
+    let date = new Date().toLocaleTimeString().split(":");
+    let hours = date[0];
+    let mins = date[1];
+    document.getElementById('time').innerHTML = hours + ":" + mins;
 }
 
 setInterval(updateTime, 1000);
 
+// Greeting Message for User
+const greetingTxt = document.getElementById('greetings');
+
+let logHour = new Date().getHours();
+
+if (logHour >= 6 && logHour < 12) {
+    greetingTxt.innerHTML = "Good morning, User.";
+} else if (logHour >= 12 && logHour < 18) {
+    greetingTxt.innerHTML = "Good afternoon, User.";
+} else if (logHour >= 18 && logHour < 21) {
+    greetingTxt.innerHTML = "Good evening, User.";
+} else {
+    greetingTxt.innerHTML = "Good night, User.";
+}
+
 // Function to make windows draggable
 
 function dragElement(element) {
-    var initialX = 0, initialY = 0; 
-    var currentX = 0, currentY = 0;
+    let initialX = 0, initialY = 0; 
+    let currentX = 0, currentY = 0;
 
     if (document.getElementById(element.id + "Header")) {
         document.getElementById(element.id + "Header").onmousedown = startDragging;
@@ -38,8 +56,8 @@ function dragElement(element) {
         initialX = e.clientX;
         initialY = e.clientY;
 
-        var top = element.offsetTop - currentY;
-        var left = element.offsetLeft - currentX;
+        let top = element.offsetTop - currentY;
+        let left = element.offsetLeft - currentX;
         
         if (top < 230) {
             top = 230;
@@ -69,17 +87,20 @@ function dragElement(element) {
 }
 
 // Controls for the windows
-var topbar = document.getElementById('topbar');
+const topbar = document.getElementById('topbar');
 
-var welcomeScreen = document.getElementById('welcome');
-var welcomeScreenClose = document.getElementById('welcomeClose');
-var welcomeScreenOpen = document.getElementById('welcomeOpen');
+const welcomeScreen = document.getElementById('welcome');
+const welcomeScreenClose = document.getElementById('welcomeClose');
+const welcomeScreenOpen = document.getElementById('welcomeOpen');
 
-var pawNotesScreen = document.getElementById('pawNotes');
-var pawNotesScreenClose = document.getElementById('pawNotesClose');
+const pawNotesScreen = document.getElementById('pawNotes');
+const pawNotesScreenClose = document.getElementById('pawNotesClose');
 
-var pawPicsScreen =  document.getElementById('pawPics');
-var pawPicsScreenClose = document.getElementById('pawPicsClose');
+const pawPicsScreen =  document.getElementById('pawPics');
+const pawPicsScreenClose = document.getElementById('pawPicsClose');
+
+const meowSicScreen = document.getElementById('meowSic');
+const meowSicScreenClose = document.getElementById('meowSicClose');
 
 function closeWindow(element) {
     element.style.display = "none";
@@ -107,9 +128,20 @@ pawPicsScreenClose.addEventListener("click", () => {
     closeWindow(pawPicsScreen);
 });
 
+meowSicScreenClose.addEventListener("click", () => {
+    closeWindow(meowSicScreen);
+    audio.pause();
+    isPlaying = false;
+    playButtonImage.src = "img/play.png";
+});
+
+initializeWindow("welcome");
+initializeWindow("pawNotes");
+initializeWindow("pawPics");
+initializeWindow("meowSic")
 
 // App Selection
-var selectedIcon = undefined;
+let selectedIcon = undefined;
 
 function selectIcon(element) {
     element.classList.add("selected");
@@ -136,7 +168,7 @@ function handleIconTap(element, appName) {
 }
 
 // Focus windows
-var biggestIndex = 1;
+let biggestIndex = 1;
 
 function addWindowTapHandling(element) {
     element.addEventListener("mousedown", () => {
@@ -152,17 +184,15 @@ function handleWindowTap(element) {
 
 
 function initializeWindow(elementName) {
-    var screen = document.getElementById(elementName);
+    let screen = document.getElementById(elementName);
     addWindowTapHandling(screen);
     dragElement(screen);
 }
 
-initializeWindow("welcome");
-initializeWindow("pawNotes");
-initializeWindow("pawPics");
 
+// PawNotes Code
 
-var content = [
+let content = [
     {
         title: "Welcome",
         date: "03/07/2026",
@@ -213,18 +243,18 @@ var content = [
 ]
 
 function setNotesContent(index) {
-    var notesContent = document.getElementById('notesContent');
+    let notesContent = document.getElementById('notesContent');
     notesContent.innerHTML = content[index].content;
 }
 
 setNotesContent(0);
 
-var selectedNote = undefined;
+let selectedNote = undefined;
 
 function addToSideBar(index) {
-    var sidebar = document.querySelector("#sidebar");
-    var note = content[index];
-    var newDiv = document.createElement("div");
+    let sidebar = document.querySelector("#sidebar");
+    let note = content[index];
+    let newDiv = document.createElement("div");
 
     newDiv.style.color = "black";
     newDiv.style.cursor = "pointer";
@@ -257,13 +287,13 @@ for (let i = 0; i < content.length; i++) {
     addToSideBar(i)
 }
 
+// PawPics Code
+const nextImgBtn = document.getElementById('pawPicsNext');
+const prevImgBtn = document.getElementById('pawPicsPrev');
+const picSlot = document.getElementById('pawPicsSlot');
 
-var nextImgBtn = document.getElementById('pawPicsNext');
-var prevImgBtn = document.getElementById('pawPicsPrev');
-var picSlot = document.getElementById('pawPicsSlot');
-
-var kittenImgs = 9;
-var currentImg = 1;
+let kittenImgs = 9;
+let currentImg = 1;
 
 nextImgBtn.addEventListener("click", showNextPic);
 prevImgBtn.addEventListener("click", showPrevPic);
@@ -285,3 +315,163 @@ function showPrevPic() {
     }
     picSlot.src = 'img/kitties/kit'+currentImg+'.jpg';
 }
+
+// MeowSic App
+
+let musicQueue = [
+    {
+        title: "Donut",
+        author: "Lukrembo",
+        totalLength: "2:24",
+        path: "Donut"
+    },
+    {
+        title: "Rose",
+        author: "Lukrembo",
+        totalLength: "2:43",
+        path: "Rose"
+    },
+    {
+        title: "This Is For You",
+        author: "Lukrembo",
+        totalLength: "3:03",
+        path: "ThisIsForYou"
+    },
+    {
+        title: "Honey Jam",
+        author: "massobeats",
+        totalLength: "2:13",
+        path: "HoneyJam"
+    },
+    {
+        title: "Gingersweet",
+        author: "massobeats",
+        totalLength: "2:36",
+        path: "Gingersweet"
+    },
+    {
+        title: "Chocolate",
+        author: "Lukrembo",
+        totalLength: "2:11",
+        path: "Chocolate"
+    }
+]
+
+const currentTimeTxt = document.getElementById('meowSicCurrentTime');
+const totalTimeTxt = document.getElementById('meowSicTotalTime');
+const titleTxt = document.getElementById('meowSicName');
+const authorTxt = document.getElementById('meowSicAuthor');
+
+const cover = document.getElementById('meowSicCover');
+
+const prevButton = document.getElementById('previousSong');
+const nextButton = document.getElementById('nextSong');
+const playButton = document.getElementById('playSong');
+const playButtonImage = document.getElementById('playPauseImage');
+
+const audio = document.getElementById('meowSicTrack');
+
+const timeSlider = document.getElementById('meowSicTimeSlider');
+
+let isPlaying = false;
+let counter = 0;
+let currentSong = musicQueue[0];
+let currentTime = 0;
+let totalTime = currentSong.totalLength;
+
+function updateSong(song) {
+    totalTime = song.totalLength;
+    totalTimeTxt.innerHTML = song.totalLength;
+    titleTxt.innerHTML = song.title;
+    authorTxt.innerHTML = song.author;
+    cover.src = "img/music/" + song.path + ".webp";
+    audio.src = "music/" + song.path + ".mp3";
+    
+    if (isPlaying) {
+        audio.play()
+    }
+    
+    let minsSec = totalTime.split(":");
+    let mins = parseInt(minsSec[0]);
+    mins = mins * 60;
+    let secs = parseInt(minsSec[1]);
+
+    timeSlider.max = mins + secs;
+    timeSlider.style.background = 'linear-gradient(to right, rgb(212, 137, 196) 0%, rgba(186, 169, 186, 0.7) 0%)';
+}
+
+audio.addEventListener("timeupdate", () => {
+    let time = audio.currentTime;
+    let mins = Math.floor(time / 60);
+    let secs = Math.floor(time % 60);
+
+    timeSlider.value = mins * 60 + secs;
+
+    const percentage = (audio.currentTime / audio.duration) * 100;
+    timeSlider.style.background = `linear-gradient(to right, rgb(212, 137, 196) ${percentage}%, rgba(186, 169, 186, 0.7) ${percentage}%)`;
+
+    if (secs < 10) {
+        secs = "0" + secs.toString();
+    } else {
+        secs = secs.toString();
+    }
+    
+    mins = mins.toString();
+    currentTimeTxt.innerHTML = mins + ":" + secs;
+
+    if (isPlaying) {
+        if (currentTimeTxt.innerHTML === totalTime) {
+            if (counter < musicQueue.length - 1) {
+                counter++;
+            } else {
+                counter = 0;
+            }
+            updateSong(musicQueue[counter]);
+        }
+    }
+});
+
+timeSlider.addEventListener("input", () => {
+    audio.currentTime = timeSlider.value;
+});
+
+
+playButton.addEventListener("click", () => {
+    if (!isPlaying) {
+        audio.play();
+        isPlaying = true;
+        playButtonImage.src = "img/pause.png";
+    } else {
+        audio.pause();
+        isPlaying = false;
+        playButtonImage.src = "img/play.png";
+    }
+});
+
+nextButton.addEventListener("click", () => {
+    if (counter < musicQueue.length - 1) {
+            counter++;
+    } else {
+        counter = 0;
+    }
+    currentSong = musicQueue[counter];
+    updateSong(currentSong);
+    if (isPlaying) {
+        audio.play();
+    }
+});
+
+prevButton.addEventListener("click", () => {
+    if (counter > 0) {
+            counter--;
+    } else {
+        counter = musicQueue.length - 1;
+    }
+    currentSong = musicQueue[counter];
+    updateSong(currentSong);
+    if (isPlaying) {
+        audio.play();
+    }
+});
+
+updateSong(musicQueue[0])

@@ -8,8 +8,19 @@
 </head>
 <body>
 
+    <!-- 
+        TODO: 
+        - Settings Application (User, specs, version)
+        - DONE! Music Player Application
+        - Calculator Application
+        - Desktop widget ?!? (Calendar??)
+        - Edit PawNotes with New/Delete not and localStorage saving
+        - Fix hardcoded window limit desktop
+        - DONE! Change time in topBar
+    -->
+
     <div id="topbar">
-        <img id="logo" src="img/cat.jpg" alt="kitty" width="45px" height="45px">
+        <p id="greetings">Greetings</p>
         <p id="welcomeOpen">KittenOS</p>
         <p id="time">Time</p>
     </div>
@@ -29,7 +40,6 @@
     </div>
 
     <!-- Paw Notes App -->
-
     <div class="window" id="pawNotes" style="display: none;">
         <div class="windowHeader" id="pawNotesHeader">
             <p style="margin-left: 10px;"><b>PawNotes</b></p>
@@ -47,7 +57,6 @@
     </div>
 
     <!-- Paw Pics App -->
-
     <div class="window" id="pawPics" style="display: none;">
         <div class="windowHeader" id="pawPicsHeader">
             <p style="margin-left: 10px;"><b>PawPics</b></p>
@@ -68,6 +77,37 @@
         </div>
     </div>
 
+    <!-- Meow Sic -->
+
+    <div class="window" id="meowSic" style="display: none;">
+        <div class="windowHeader" id="meowSicHeader">
+            <p style="margin-left: 10px;"><b>MeowSic</b></p>
+            <button class="closeButton" id="meowSicClose" style="margin-right: 10px;"></button>
+        </div>
+        <div id="meowSicPlayer">
+            <div id="meowSicContent">
+                <img id="meowSicCover" src="" width="175px" style="margin: 12px; border: solid; border-radius: 12px;">
+
+                <div id="meowSicInfo">
+                    <p style="margin: 0;"><span id="meowSicName">Title</span> - <span id="meowSicAuthor">Author</span></p>
+                    <input id="meowSicTimeSlider" type="range" min="0" max="100" value="0" style="width: 180px;">
+                    <div style="display: flex; justify-content: space-evenly;">
+                        <p id="meowSicCurrentTime">0:00</p>
+                        <p id="meowSicTotalTime" style="padding-left: 130px;">0:00</p>
+                        <audio id="meowSicTrack" src=""></audio>
+                    </div>
+                </div>
+                
+                <div id="meowSicControls">
+                    <button class="controlButtons" id="previousSong"><img src="img/previous.png" alt="" ></button>
+                    <button class="controlButtons" id="playSong"><img id="playPauseImage" src="img/play.png" alt=""></button>
+                    <button class="controlButtons" id="nextSong"><img src="img/next.png" alt=""></button>
+                </div>
+                
+            </div>
+        </div>
+    </div>
+
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px;">
         <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
@@ -78,6 +118,11 @@
         <div class="icon" onclick="handleIconTap(this, pawPicsScreen)" style="width: 80px;">
             <img src="img/PawPics.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Pics</p>
+        </div>
+
+        <div class="icon" onclick="handleIconTap(this, meowSicScreen)" style="width: 80px;">
+            <img src="img/MeowSic.png" width="64px" style="border-radius: 12px;">
+            <p style="margin: 0px;">Meow Sic</p>
         </div>
     </div>
 
