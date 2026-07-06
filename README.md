@@ -1,5 +1,6 @@
 # KittenOS
 A cat themed WebOS built with HTML, CSS and JS!
+
 ![KittenOS Logo](img/preview.gif)
 
 [<button style="background-color: white; color: black;">Try it here!</button>](https://n0kira.github.io/KittenOS/)
@@ -9,8 +10,9 @@ A cat themed WebOS built with HTML, CSS and JS!
 KittenOS as mentioned before is a WebOS, it offers some basic features like: window dragging, desktop icons, real time clock.
 
 The current available applications are:
-- PawNotes: Read my notes in this application
-- PawPics: Scroll through some images of cats
+- **PawNotes** 🐈📝: Read my notes in this application
+- **PawPics** 🐈‍⬛📷: Scroll through some images of cats
+- **MeowSic** 🐈🎵: A music player application, listen to some lo-fi beats and relax!
 
 More applications are coming soon!!!
 
