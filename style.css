@@ -24,8 +24,6 @@ h1 {
     z-index: 0;
 }
 
-
-
 #greetings {
     padding-left: 12px;
     padding-right: 12px;
@@ -169,6 +167,58 @@ h1 {
     border-radius: 100%;
     cursor: grab;
 }
+
+#pawCalcContainer {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    width: 220px;
+    background: linear-gradient(110deg, rgba(225, 156, 255, 0.6) 0%, rgba(255, 241, 252, 0.6) 100%);
+    border: 2px solid;
+    border-bottom-left-radius: 12px;
+    border-bottom-right-radius: 12px;
+    padding: 12px;
+}
+
+#pawCalcEquals {
+    grid-column: span 2;
+    aspect-ratio: auto;
+    border-radius: 12px;
+}
+
+#pawCalcResult {
+    border: 2px solid;
+    border-bottom: none;
+    border-top-left-radius: 12px;
+    border-top-right-radius: 12px;
+    height: 50px;
+    margin-top: 20px;
+    text-align: right;
+    font-size: 43px;
+    background: linear-gradient(15deg, rgba(225, 156, 255, 0.6) 0%, rgba(255, 241, 252, 0.6) 100%);
+    padding-right: 12px;
+}
+
+.pawCalcBtn {
+    user-select: none;
+    font-weight: bold;
+    border-radius: 50%;
+    width: 100%;
+    aspect-ratio: 1 / 1;
+    border: 1px solid rgb(101, 53, 121);
+    background: linear-gradient(110deg, rgb(225, 180, 245) 0%, rgb(246, 167, 255) 100%);
+}
+
+.pawCalcBtn:hover {
+    cursor: pointer;
+
+    filter: contrast(1.15);
+}
+
+.pawCalcBtn:active {
+    transform: scale(90%);
+}
+
 
 .window {
     background-color: rgba(254, 230, 254, 0.7);

@@ -14,7 +14,7 @@
         - DONE! Music Player Application
         - Calculator Application
         - Desktop widget ?!? (Calendar??)
-        - Edit PawNotes with New/Delete not and localStorage saving
+        - Edit PawNotes with New/Delete note and localStorage saving
         - Fix hardcoded window limit desktop
         - DONE! Change time in topBar
     -->
@@ -108,8 +108,50 @@
         </div>
     </div>
 
+    <!-- Paw Calc -->
+
+    <div class="window" id="pawCalc" style="display: block;">
+        <div class="windowHeader" id="pawCalcHeader">
+            <p style="margin-left: 10px;"><b>PawCalc</b></p>
+            <button class="closeButton" id="pawCalcClose" style="margin-right: 10px;"></button>
+        </div>
+        
+       <div>
+            <div id="pawCalcResult">
+                00.00
+            </div>
+
+            <div id="pawCalcContainer">
+                <button class="pawCalcBtn" id="pawCalcClear">AC</button>
+                <button class="pawCalcBtn" id="pawCalcDelete">C</button>
+                <button class="pawCalcBtn pawCalcOperand">%</button>
+                <button class="pawCalcBtn pawCalcOperand">/</button>
+
+                <button class="pawCalcBtn pawCalcNum">7</button>
+                <button class="pawCalcBtn pawCalcNum">8</button>
+                <button class="pawCalcBtn pawCalcNum">9</button>
+                <button class="pawCalcBtn pawCalcOperand">*</button>
+
+                <button class="pawCalcBtn pawCalcNum">4</button>
+                <button class="pawCalcBtn pawCalcNum">5</button>
+                <button class="pawCalcBtn pawCalcNum">6</button>
+                <button class="pawCalcBtn pawCalcOperand">-</button>
+
+                <button class="pawCalcBtn pawCalcNum">1</button>
+                <button class="pawCalcBtn pawCalcNum">2</button>
+                <button class="pawCalcBtn pawCalcNum">3</button>
+                <button class="pawCalcBtn pawCalcOperand">+</button>
+
+                <button class="pawCalcBtn pawCalcNum">0</button>
+                <button class="pawCalcBtn pawCalcNum">.</button>
+                <button class="pawCalcBtn" id="pawCalcEquals">=</button>
+            </div>
+       </div>
+
+    </div>
+
     <!-- Desktop Icons -->
-    <div id="desktopApps" style="padding-top: 100px; padding-left: 20px;">
+    <div id="desktopApps" style="padding-top: 100px; padding-left: 20px; user-select: none;">
         <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
             <img src="img/PawNotes.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Notes</p>
@@ -124,8 +166,17 @@
             <img src="img/MeowSic.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Meow Sic</p>
         </div>
+
+        <div class="icon" onclick="handleIconTap(this, pawCalcScreen)" style="width: 80px;">
+            <img src="img/PawCalc.png" width="64px" style="border-radius: 12px;">
+            <p style="margin: 0px;">Paw Calc</p>
+        </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="js/core.js"></script>
+    <script src="js/notes.js"></script>
+    <script src="js/pics.js"></script>
+    <script src="js/music.js"></script>
+    <script src="js/calc.js"></script>
 </body>
 </html>
