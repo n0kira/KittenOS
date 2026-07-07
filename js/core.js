@@ -43,10 +43,10 @@ function dragElement(element) {
         initialY = e.clientY;
 
         document.onmouseup = stopDragging;
-        document.onmousemove = dragElement;
+        document.onmousemove = moveElement;
     }
 
-    function dragElement(e) {
+    function moveElement(e) {
         e = e || window.event;
         e.preventDefault();
 
@@ -59,22 +59,17 @@ function dragElement(element) {
         let top = element.offsetTop - currentY;
         let left = element.offsetLeft - currentX;
         
-        if (top < 230) {
-            top = 230;
+        if (top < 0) top = 0;
+        if (top + element.offsetHeight > window.innerHeight) {
+            top = window.innerHeight - element.offsetHeight;
+        }
+        
+        if (left < 0) left = 0;
+        if (left + element.offsetWidth > window.innerWidth) {
+            left = window.innerWidth - element.offsetWidth;
         }
 
-        if (top > window.innerHeight - 155) {
-            top = window.innerHeight - 155;
-        }
-
-        if (left > window.innerWidth - 300 ) {
-            left = window.innerWidth - 300;
-        }
-
-        if (left < 300) {
-            left = 300;
-        }
-
+        
         element.style.top = top + "px";
         element.style.left = left + "px";
     }

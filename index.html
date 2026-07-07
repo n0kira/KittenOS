@@ -12,11 +12,12 @@
         TODO: 
         - Settings Application (User, specs, version)
         - DONE! Music Player Application
-        - Calculator Application
-        - Desktop widget ?!? (Calendar??)
-        - Edit PawNotes with New/Delete note and localStorage saving
-        - Fix hardcoded window limit desktop
+        - DONE! Calculator Application
+        - DONE! Desktop widget ?!? (Calendar??)
+        - DONE! Edit PawNotes with New/Delete note and localStorage saving
+        - DONE! Fix hardcoded window limit desktop
         - DONE! Change time in topBar
+        - Small Game?? (Flabby Bird... Any cat game?)
     -->
 
     <div id="topbar">
@@ -53,6 +54,10 @@
             <div id="notesContent">
             </div>
 
+            <div style="position: absolute; bottom: 5px; right: 40px;">
+                <button class="notesButtons" id="pawNotesNewBtn">New</button>
+                <button class="notesButtons" id="pawNotesDelBtn">Delete</button>
+            </div>
         </div>
     </div>
 
@@ -78,7 +83,6 @@
     </div>
 
     <!-- Meow Sic -->
-
     <div class="window" id="meowSic" style="display: none;">
         <div class="windowHeader" id="meowSicHeader">
             <p style="margin-left: 10px;"><b>MeowSic</b></p>
@@ -109,7 +113,6 @@
     </div>
 
     <!-- Paw Calc -->
-
     <div class="window" id="pawCalc" style="display: none;">
         <div class="windowHeader" id="pawCalcHeader">
             <p style="margin-left: 10px;"><b>PawCalc</b></p>
@@ -173,10 +176,39 @@
         </div>
     </div>
 
+    <!-- Desktop Widgets -->
+    <div id="widgets" style="display: flex; justify-self: right; margin-left: auto; position: absolute; top: 100px;">
+        <div class="widget" id="calendarWidget" >
+            <div id="calendar">
+                <div id="header">
+                    <button class="skipMonth" id="prevMonth"><img src="img/arrow.png" alt="" width="25px" style="rotate: -90deg;"></button>
+                    <div id="headerDisplay">
+                        <p id="display"></p>
+                    </div>
+                    <button class="skipMonth" id="nextMonth"><img src="img/arrow.png" alt="" width="25px" style="rotate: 90deg;"></button>
+                </div>
+
+                <div id="week">
+                    <div>Su</div>
+                    <div>Mo</div>
+                    <div>Tu</div>
+                    <div>We</div>
+                    <div>Th</div>
+                    <div>Fr</div>
+                    <div>Sa</div>
+                </div>
+
+                <div id="days">
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="js/core.js"></script>
     <script src="js/notes.js"></script>
     <script src="js/pics.js"></script>
     <script src="js/music.js"></script>
     <script src="js/calc.js"></script>
+    <script src="js/calendar.js"></script>
 </body>
 </html>

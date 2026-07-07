@@ -2,12 +2,16 @@
 const pawNotesScreen = document.getElementById('pawNotes');
 const pawNotesScreenClose = document.getElementById('pawNotesClose');
 
+const noteNewButton = document.getElementById('pawNotesNewBtn');
+const noteDelButton = document.getElementById('pawNotesDelBtn');
+
+const notesContent = document.getElementById('notesContent');
+
 let content = [
     {
         title: "Welcome",
         date: "03/07/2026",
         content: `
-            <p contenteditable="true">
                 Welcome to PawNotes, the incredible note taking app for cats!
                 Here you will find many notes...
                 <br>
@@ -22,50 +26,112 @@ let content = [
                 Or...
                 <br>
                 Anything!!!
-            </p>
-        `
+                 `
     },
     {
         title: "About Me",
         date: "03/07/2026",
         content: `
-            <p>
                 Hello again!
                 <br>
                 I am <b>nokira</b>, a high school student from Italy!
                 <br>
                 I'm really enjoyin this journey because it's chellenging but so rewarding! I am learning many new things and building actual websites :D
-            </p>
-        `
+                `
     },
     {
         title: "Fun Fact",
         date: "04/07/2026",
         content: `
-            <p>
                 Hello!
                 <br>
                 If you wanted to know, my favorite food is... hmm... it's a <i>secret</i>
-                
-            </p>
-        `
+                `
     }
 ]
 
+const savedData = localStorage.getItem("pawNotesData");
+
+content = savedData ? JSON.parse(savedData) : content;
+
 function setNotesContent(index) {
+    
     let notesContent = document.getElementById('notesContent');
-    notesContent.innerHTML = content[index].content;
+    if (index == -1) {
+         notesContent.innerHTML = "";
+    } else {
+        notesContent.innerHTML = `
+             <h2 contenteditable="true" class="noteTitle"> 
+                ${content[index].title}
+            </h2>
+            <p contenteditable="true" class="noteContent">${content[index].content}</p>
+        `
+    }
 }
 
-setNotesContent(0);
+noteNewButton.addEventListener("click", () => {
+    content.push(
+        {
+            title: "New Note",
+            date: new Date().toLocaleDateString("en-GB"),
+            content: `Write here your note.`
+        }
+    )
+    reloadSidebar();
+    localStorage.setItem("pawNotesData", JSON.stringify(content));
+});
+
+noteDelButton.addEventListener("click", () => {
+    if (!selectedNote) return;
+    
+    let index = parseInt(selectedNote.dataset.index);
+    content.splice(index, 1);
+    reloadSidebar();
+    localStorage.setItem("pawNotesData", JSON.stringify(content));
+});
+
+notesContent.addEventListener("input", (note) => {
+    if(!selectedNote) return;
+
+    let index = parseInt(selectedNote.dataset.index);
+
+    let noteTitle = notesContent.querySelector(".noteTitle");
+    let noteContent = notesContent.querySelector(".noteContent");
+
+    if (note.target == noteTitle) {
+        content[index].title = noteTitle.innerText;
+        selectedNote.querySelector('p').innerText = noteTitle.innerText;
+    }
+
+    if (note.target == noteContent) {
+        content[index].content = noteContent.innerHTML;
+    }
+
+    localStorage.setItem("pawNotesData", JSON.stringify(content));
+});
 
 let selectedNote = undefined;
+for (let i = 0; i < content.length; i++) {
+    addToSideBar(i)
+}
+
+if (content.length > 0) {
+    let sidebar = document.querySelector("#sidebar");
+    selectedNote = sidebar.lastElementChild;
+    selectedNote.style.color = "rgb(124, 18, 124)";
+    setNotesContent(content.length - 1);
+} else {
+    setNotesContent(-1);
+    selectedNote = null;
+}
+
 
 function addToSideBar(index) {
     let sidebar = document.querySelector("#sidebar");
     let note = content[index];
     let newDiv = document.createElement("div");
 
+    newDiv.dataset.index = index;
     newDiv.style.color = "black";
     newDiv.style.cursor = "pointer";
     
@@ -92,10 +158,25 @@ function addToSideBar(index) {
     sidebar.appendChild(newDiv);
 }
 
+function reloadSidebar() {
+    let sidebar = document.querySelector("#sidebar");
+    sidebar.innerHTML = "";
 
-for (let i = 0; i < content.length; i++) {
-    addToSideBar(i)
+    for (let i = 0; i < content.length; i++) {
+        addToSideBar(i);
+    }
+
+    if (content.length > 0) {
+        selectedNote = sidebar.lastElementChild;
+        selectedNote.style.color = "rgb(124, 18, 124)";
+        setNotesContent(content.length - 1);
+    } else {
+        setNotesContent(-1);
+        selectedNote = null;
+    }
 }
+
+
 
 pawNotesScreenClose.addEventListener("click", () => {
     closeWindow(pawNotesScreen);
