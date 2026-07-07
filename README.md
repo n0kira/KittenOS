@@ -1,9 +1,9 @@
 # KittenOS
 A cat themed WebOS built with HTML, CSS and JS!
 
-![KittenOS Logo](img/preview.gif)
+https://github.com/user-attachments/assets/d2933ec0-34d5-4d56-b8ec-59358d984d87
 
-[<button style="background-color: white; color: black;">Try it here!</button>](https://n0kira.github.io/KittenOS/)
+[Try it here!](https://n0kira.github.io/KittenOS/)
 
 ## What is KittenOS?
 
