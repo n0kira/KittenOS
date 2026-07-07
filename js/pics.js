@@ -30,9 +30,7 @@ function showPrevPic() {
     picSlot.src = 'img/kitties/kit'+currentImg+'.jpg';
 }
 
-pawPicsScreenClose.addEventListener("click", () => {
-    closeWindow(pawPicsScreen);
-});
+pawPicsScreenClose.addEventListener("click", () => closeWindow(pawPicsScreen));
 
 
 initializeWindow("pawPics");

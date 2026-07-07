@@ -11,6 +11,11 @@ h1 {
     margin: 4px;
 }
 
+input[name="timeFormat"] {
+    accent-color: rgb(255, 144, 255);
+    cursor: pointer;
+}
+
 #topbar {
     display: grid;
     grid-template-columns: 1fr auto 1fr;
@@ -282,6 +287,59 @@ h1 {
     opacity: 0.5;
 }
 
+#pawConfig {
+    width: 600px;
+}
+
+#settingsSideBar {
+    width: 150px; 
+    background: linear-gradient(135deg, rgba(255, 241, 252, 0.6) 0%,  rgba(225, 156, 255, 0.6) 100%);
+    backdrop-filter: blur(10px); 
+    padding: 10px; 
+    border-top-left-radius: 8px;
+    border-bottom-left-radius: 8px;
+    border-right: 3px solid; 
+    text-align: left;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#settingsSideBar p:hover {
+    cursor: pointer;
+}
+
+#settingsContent {
+    background: linear-gradient(15deg, rgba(225, 156, 255, 0.6) 0%, rgba(255, 241, 252, 0.6) 100%);
+    width: 100%;
+    padding: 10px;  
+    text-align: left; 
+    border-top-right-radius: 8px;
+    border-bottom-right-radius: 8px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+#editPfp {
+    background: linear-gradient(15deg, rgba(225, 156, 255, 0.6) 0%, rgba(255, 241, 252, 0.6) 100%);
+    border: 2px rgb(234, 185, 255) solid;
+    border-radius: 16px;
+    cursor: pointer;
+}
+
+#editPfp:hover {
+    opacity: 0.8;
+}
+
+.userSettingField button {
+    background: transparent;
+}
+
+.userSettingField {
+    display: flex;
+    justify-content: space-between;
+    margin: 2px;
+}
+
 .skipMonth {
     padding: 10px;
     margin: 0;
@@ -407,4 +465,25 @@ h1 {
     cursor: pointer;
     font-style: italic;
     transform: scale(110%);
+}
+
+.flatpickr-calendar {
+    background: linear-gradient(110deg, rgb(225, 180, 245) 0%, rgb(246, 167, 255) 100%) !important;
+    border: 1px solid !important;
+}
+
+.flatpickr-day.selected {
+    background: #fd8cff !important;
+    border-color: transparent !important;
+}
+
+.flatpickr-day:hover {
+    background: #fec9ff !important;
+    border-color: transparent !important;
+}
+
+.birthdayHighlight {
+    color: rgb(179, 0, 255);
+    background-color: rgb(210, 97, 255);
+    border: 1px solid;
 }

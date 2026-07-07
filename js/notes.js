@@ -36,7 +36,7 @@ let content = [
                 <br>
                 I am <b>nokira</b>, a high school student from Italy!
                 <br>
-                I'm really enjoyin this journey because it's chellenging but so rewarding! I am learning many new things and building actual websites :D
+                I'm really enjoying this journey because it's challenging but so rewarding! I am learning many new things and building actual websites :D
                 `
     },
     {
@@ -178,8 +178,6 @@ function reloadSidebar() {
 
 
 
-pawNotesScreenClose.addEventListener("click", () => {
-    closeWindow(pawNotesScreen);
-});
+pawNotesScreenClose.addEventListener("click", () => closeWindow(pawNotesScreen));
 
 initializeWindow("pawNotes");

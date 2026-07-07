@@ -1,28 +1,3 @@
-// Function to update the time each second'
-function updateTime() {
-    let date = new Date().toLocaleTimeString().split(":");
-    let hours = date[0];
-    let mins = date[1];
-    document.getElementById('time').innerHTML = hours + ":" + mins;
-}
-
-setInterval(updateTime, 1000);
-
-// Greeting Message for User
-const greetingTxt = document.getElementById('greetings');
-
-let logHour = new Date().getHours();
-
-if (logHour >= 6 && logHour < 12) {
-    greetingTxt.innerHTML = "Good morning, User.";
-} else if (logHour >= 12 && logHour < 18) {
-    greetingTxt.innerHTML = "Good afternoon, User.";
-} else if (logHour >= 18 && logHour < 21) {
-    greetingTxt.innerHTML = "Good evening, User.";
-} else {
-    greetingTxt.innerHTML = "Good night, User.";
-}
-
 // Function to make windows draggable
 
 function dragElement(element) {
@@ -98,13 +73,9 @@ function openWindow(element) {
     element.style.zIndex = biggestIndex;
 }
 
-welcomeScreenClose.addEventListener("click", function() {
-    closeWindow(welcomeScreen);
-});
+welcomeScreenClose.addEventListener("click", () => closeWindow(welcomeScreen));
 
-welcomeScreenOpen.addEventListener("click", function() {
-    openWindow(welcomeScreen);
-})
+welcomeScreenOpen.addEventListener("click", () => openWindow(welcomeScreen));
 
 initializeWindow("welcome");
 

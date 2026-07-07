@@ -67,9 +67,7 @@ function fixText() {
 }
 
 
-pawCalcScreenClose.addEventListener("click", () => {
-    closeWindow(pawCalcScreen);
-});
+pawCalcScreenClose.addEventListener("click", () => closeWindow(pawCalcScreen));
 
 initializeWindow("pawCalc");
 

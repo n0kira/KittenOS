@@ -5,19 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>KittenOS</title>
     <link rel="stylesheet" href="style.css">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 </head>
 <body>
 
     <!-- 
         TODO: 
-        - Settings Application (User, specs, version)
+        - DONE! Settings Application (User, specs, version)
         - DONE! Music Player Application
         - DONE! Calculator Application
         - DONE! Desktop widget ?!? (Calendar??)
         - DONE! Edit PawNotes with New/Delete note and localStorage saving
         - DONE! Fix hardcoded window limit desktop
         - DONE! Change time in topBar
-        - Small Game?? (Flabby Bird... Any cat game?)
+
     -->
 
     <div id="topbar">
@@ -153,8 +156,62 @@
 
     </div>
 
+    <!-- Paw Config -->
+    <div class="window" id="pawConfig" style="display: none;">
+        <div class="windowHeader" id="pawConfigHeader">
+            <p style="margin-left: 10px;"><b>PawConfig</b></p>
+            <button class="closeButton" id="pawConfigClose" style="margin-right: 10px;"></button>
+        </div>
+        
+         <div style="display: flex; border: 3px solid; margin: 10px; border-radius: 10px; height: 350px;">
+
+            <div id="settingsSideBar">
+                <p>User Settings</p>
+            </div>
+
+            <div id="settingsContent">
+                <div id="userSettings" style="font-size: 20px; display: block;">
+                    <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 25px;">
+                        <img src="img/cat.jpg" id="pfp" width="125px" height="125px" style="border-radius: 50%; border: solid;">
+                        <button id="editPfp" style="font-size: 12px; margin: 6px;">Edit</button>
+                        <input type="file" id="pfpInput" accept="image/*" style="display: none;">
+                    </div>
+
+                    <div class="userSettingField">
+                        <p style="margin: 0;">Username:</p>
+                        <p id="usernameField" contenteditable="true" style="margin: 0;">User</p>
+                    </div>
+
+                    <div class="userSettingField">
+                        <p style="margin: 0;">Date of birth:</p>
+                        <input type="date" name="birth" id="birthdate" style="background: transparent; border: none; text-align: right;">
+                    </div>
+
+                    <div class="userSettingField">
+                        <p style="margin: 0;">Time format:</p>
+
+                        <div style="display: flex;">
+                            <p style="margin: 0; margin-right: 4px;">12h</p>
+                            <input style="margin: 0;" type="radio" name="timeFormat" id="format12h" value="12">
+                            <p style="margin: 0 4px 0 16px;">24h</p>
+                            <input style="margin: 0;" type="radio" name="timeFormat" id="format24h" value="24" checked>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+
+
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px; user-select: none;">
+        <div class="icon" onclick="handleIconTap(this, pawConfig)" style="width: 80px;">
+            <img src="img/PawConfig.png" width="64px" style="border-radius: 12px;">
+            <p style="margin: 0px;">Paw Config</p>
+        </div>
+        
         <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
             <img src="img/PawNotes.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Notes</p>
@@ -210,5 +267,6 @@
     <script src="js/music.js"></script>
     <script src="js/calc.js"></script>
     <script src="js/calendar.js"></script>
+    <script src="js/settings.js"></script>
 </body>
 </html>

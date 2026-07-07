@@ -23,6 +23,16 @@ function displayCalendar() {
     const lastDay = new Date(year, month + 1, 0);
     const numberOfDays = lastDay.getDate(); 
 
+    let savedBirthdate = localStorage.getItem("kittenOS-birthdate");
+    let birthday = null;
+    let birthmonth = null;
+
+    if (savedBirthdate) {
+        birthday = new Date(savedBirthdate).getDate();
+        birthmonth = new Date(savedBirthdate).getMonth();
+    } 
+
+
     for (let x = 1; x <= firstDayIndex; x++) {
         let div = document.createElement("div");
         div.innerHTML = "";
@@ -41,6 +51,10 @@ function displayCalendar() {
             date.getMonth() === new Date().getMonth() &&
             date.getDate() === new Date().getDate()) {
             div.classList.add("currentDate");
+        }
+
+        if (i == birthday && month == birthmonth) {
+            div.classList.add("birthdayHighlight");
         }
     }
 
