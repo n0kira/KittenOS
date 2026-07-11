@@ -481,16 +481,35 @@ input[name="timeFormat"] {
     transform: scale(100%);
 }
 
-.upgradeTitle {
-    font-weight: bold;
+#pawCmd {
+    width: 600px;
+    height: 400px;
+    font-family: 'Courier New', Courier, monospace;
+    box-sizing: border-box;
 }
 
-.upgradeDescription {
-    font-size: 12px;
+#pawCmdContent {
+    padding: 10px;
+    height: calc(100% - 35px);
+    height: 83%;
+    display: flex;
+    overflow-y: auto;
+    flex-direction: column;
 }
 
-.upgradeCost {
-    font-weight: bold;
+#pawCmdInput {
+    border: none;
+    outline: none;
+    line-height: 42px;
+}
+
+#inputLine {
+    display: flex;
+    width: 100%;
+}
+
+#prompt {
+    white-space: nowrap;
 }
 
 .searchButton {

@@ -16,7 +16,7 @@
         - DONE! Folder (static non user created)
         - DONE! PawPaint (Paint app)
         - DONE! (kinda.. :( ) PawBrowser ?? 
-        - PawCmd (Cmd with a few commands)
+        - DONE! PawCmd (Cmd with a few commands)
         - DONE! Cat game?
         - Pet on desktop?
     -->
@@ -262,7 +262,7 @@
     </div>
 
     <!-- Paw Game -->
-     <div class="window" id="pawGame" style="display: none;">
+    <div class="window" id="pawGame" style="display: none;">
         <div class="windowHeader" id="pawGameHeader">
             <p style="margin-left: 10px;"><b>pawGame</b></p>
             <button class="closeButton" id="pawGameClose" style="margin-right: 10px;"></button>
@@ -274,6 +274,27 @@
 
         <div id="pawGameContent" style="border: solid;">
             <button id="pawGameStart"> Start </button>
+        </div>
+
+    </div>
+   
+    <!-- PawCmd -->
+    <div class="window" id="pawCmd" style="display: block;">
+        <div class="windowHeader" id="pawCmdHeader">
+            <p style="margin-left: 10px;"><b>pawCmd</b></p>
+            <button class="closeButton" id="pawCmdClose" style="margin-right: 10px;"></button>
+        </div>
+        
+        <div id="pawCmdContent">
+            <div id="inputLine">
+                <pre id="prompt"></pre>
+                <div id="pawCmdInput" contenteditable="true" spellcheck="false"></div>  
+            </div>
+
+            <div>
+                <p id="pawCmdOutput"></p>
+            </div>
+
         </div>
 
     </div>
@@ -328,6 +349,11 @@
                     <img src="img/appIcons/PawGame.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Game</p>
                 </div>
+                
+                <div class="icon" onclick="handleIconTap(this, pawCmdScreen); resizeCanvas()" style="width: 80px;">
+                    <img src="img/appIcons/PawCmd.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Paw Cmd</p>
+                </div>
             </div>
 
         </div>
@@ -377,6 +403,7 @@
     <script src="js/folder.js"></script>
     <script src="js/browser.js"></script>
     <script src="js/clicker.js"></script>
+    <script src="js/cmd.js"></script>
 
 </body>
 </html>
