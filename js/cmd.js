@@ -4,11 +4,11 @@ const pawCmdScreen = document.getElementById('pawCmd');
 const pawCmdScreenClose = document.getElementById('pawCmdClose');
 
 const cmdInput = document.getElementById('pawCmdInput');
-const prompt = document.getElementById('prompt');
+const cmdPrompt = document.getElementById('cmdPrompt');
 const cmdOutput = document.getElementById('pawCmdOutput');
 const pawCmdContent = document.getElementById('pawCmdContent');
 
-prompt.innerHTML = user + "@kittenOs $>";
+cmdPrompt.innerHTML = user + "@kittenOs $>";
 
 pawCmdContent.addEventListener("click", () => {
     cmdInput.focus();
@@ -34,7 +34,8 @@ cmdInput.addEventListener("keydown", (e) => {
                 printTerminal("(=^.^=) .... meow");
                 break;
             case "clear":
-                history.innerHTML = "";
+                cmdOutput.innerHTML = "";
+                break;
             default:
                 printTerminal(`Command - ${command} - not found! Type help for available commands`);
         }
