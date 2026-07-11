@@ -17,7 +17,7 @@
         - DONE! PawPaint (Paint app)
         - DONE! (kinda.. :( ) PawBrowser ?? 
         - PawCmd (Cmd with a few commands)
-        - Cat game?
+        - DONE! Cat game?
         - Pet on desktop?
     -->
 
@@ -261,26 +261,19 @@
         </div>
     </div>
 
-    <!-- Paw Gaem -->
-     <div class="window" id="pawGame" style="display: block;">
+    <!-- Paw Game -->
+     <div class="window" id="pawGame" style="display: none;">
         <div class="windowHeader" id="pawGameHeader">
             <p style="margin-left: 10px;"><b>pawGame</b></p>
             <button class="closeButton" id="pawGameClose" style="margin-right: 10px;"></button>
         </div>
         
         <div id="pawGameStats">
-            <p>Power: 0</p>
-            <p>Power Per Second: 0</p>
+            <p id="pawGameScore">Total yarn: 0</p>
         </div>
 
-        <div id="pawGameContent">
-            
-            <div id="pawGameplay">
-                <img id="pawGameClicker" src="img/figma/kitten.png" width="50%" height="75%">
-            </div>
-            <div id="pawSideBar">
-                <button><span class="upgradeTitle">Kitten power</span><br><span class="upgradeDescription">+1 PPS | Cost: <span class="upgradeCost">0</span> </span></button>
-            </div>
+        <div id="pawGameContent" style="border: solid;">
+            <button id="pawGameStart"> Start </button>
         </div>
 
     </div>
@@ -288,12 +281,12 @@
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px; user-select: none;">
 
-        <div class="icon" onclick="handleIconTap(this, pawConfig)" style="width: 80px;">
+        <div class="icon" onclick="handleIconTap(this, pawConfigScreen)" style="width: 80px;">
             <img src="img/appIcons/PawConfig.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Config</p>
         </div>
         
-        <div class="icon" onclick="handleIconTap(this, pawNet)" style="width: 80px;">
+        <div class="icon" onclick="handleIconTap(this, pawNetScreen)" style="width: 80px;">
             <img src="img/appIcons/PawNet.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Net</p>
         </div>
@@ -383,6 +376,7 @@
     <script src="js/paint.js"></script>
     <script src="js/folder.js"></script>
     <script src="js/browser.js"></script>
+    <script src="js/clicker.js"></script>
 
 </body>
 </html>
