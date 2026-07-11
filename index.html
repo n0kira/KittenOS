@@ -13,14 +13,12 @@
 
     <!-- 
         TODO: 
-        - DONE! Settings Application (User, specs, version)
-        - DONE! Music Player Application
-        - DONE! Calculator Application
-        - DONE! Desktop widget ?!? (Calendar??)
-        - DONE! Edit PawNotes with New/Delete note and localStorage saving
-        - DONE! Fix hardcoded window limit desktop
-        - DONE! Change time in topBar
-
+        - Folder (static non user created)
+        - DONE! PawPaint (Paint app)
+        - PawBrowser ?? 
+        - PawCmd (Cmd with a few commands)
+        - Cat game?
+        - Pet on desktop?
     -->
 
     <div id="topbar">
@@ -79,9 +77,9 @@
             </p>
         </div>
         <div id="pawPicsContainer">
-            <button class="pawPicsBtn" id="pawPicsPrev"><img class="pawBtnImg" src="img/arrow.png" alt="" width="30px" style="rotate: -90deg;"></button>
+            <button class="pawPicsBtn" id="pawPicsPrev"><img class="pawBtnImg" src="img/UIicons/arrow.png" alt="" width="30px" style="rotate: -90deg;"></button>
             <img id="pawPicsSlot" src="img/kitties/kit1.jpg" alt="Amazing Cat Picture" width="500px" height="450px">
-            <button class="pawPicsBtn" id="pawPicsNext"><img class="pawBtnImg" src="img/arrow.png" alt="" width="30px" style="rotate: 90deg;"></button>
+            <button class="pawPicsBtn" id="pawPicsNext"><img class="pawBtnImg" src="img/UIicons/arrow.png" alt="" width="30px" style="rotate: 90deg;"></button>
         </div>
     </div>
 
@@ -106,9 +104,9 @@
                 </div>
                 
                 <div id="meowSicControls">
-                    <button class="controlButtons" id="previousSong"><img src="img/previous.png" alt="" ></button>
-                    <button class="controlButtons" id="playSong"><img id="playPauseImage" src="img/play.png" alt=""></button>
-                    <button class="controlButtons" id="nextSong"><img src="img/next.png" alt=""></button>
+                    <button class="controlButtons" id="previousSong"><img src="img/UIicons/previous.png" alt="" ></button>
+                    <button class="controlButtons" id="playSong"><img id="playPauseImage" src="img/UIicons/play.png" alt=""></button>
+                    <button class="controlButtons" id="nextSong"><img src="img/UIicons/next.png" alt=""></button>
                 </div>
                 
             </div>
@@ -204,32 +202,79 @@
     </div>
 
 
+    <!-- Paw Paint -->
+    <div class="window" id="pawPaint" style="display: none;">
+        <div class="windowHeader" id="pawPaintHeader">
+            <p style="margin-left: 10px;"><b>pawPaint</b></p>
+            <button class="closeButton" id="pawPaintClose" style="margin-right: 10px;"></button>
+        </div>
+        
+        <div id="pawPaintContainer">
+            <div id="pawPaintToolbar">
+                <div class="toolSection">
+                    <div class="tool">
+                        <label for="stroke">Color</label>
+                        <input type="color" id="stroke" name="stroke">
+                    </div>
+                    
+                    <div class="tool">
+                        <label for="lineWidth">Width</label>
+                        <input name="lineWidth" type="tel" id="lineWidth" value="5">
+                    </div>
+                </div>
+                
+               <div class="toolSection">
+                    <div class="tool">
+                        <button id="clear">Clear</button>
+                    </div>
+
+                    <div class="tool">
+                        <button id="savePng">Save</button>
+                    </div>
+               </div>
+            </div>
+
+            <div id="pawPaintCanvas">
+                <canvas id="drawingBoard">
+
+                </canvas>
+            </div>
+        </div>
+
+    </div>
+
+
 
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px; user-select: none;">
         <div class="icon" onclick="handleIconTap(this, pawConfig)" style="width: 80px;">
-            <img src="img/PawConfig.png" width="64px" style="border-radius: 12px;">
+            <img src="img/appIcons/PawConfig.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Config</p>
         </div>
         
         <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
-            <img src="img/PawNotes.png" width="64px" style="border-radius: 12px;">
+            <img src="img/appIcons/PawNotes.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Notes</p>
         </div>
 
         <div class="icon" onclick="handleIconTap(this, pawPicsScreen)" style="width: 80px;">
-            <img src="img/PawPics.png" width="64px" style="border-radius: 12px;">
+            <img src="img/appIcons/PawPics.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Pics</p>
         </div>
 
         <div class="icon" onclick="handleIconTap(this, meowSicScreen)" style="width: 80px;">
-            <img src="img/MeowSic.png" width="64px" style="border-radius: 12px;">
+            <img src="img/appIcons/MeowSic.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Meow Sic</p>
         </div>
 
         <div class="icon" onclick="handleIconTap(this, pawCalcScreen)" style="width: 80px;">
-            <img src="img/PawCalc.png" width="64px" style="border-radius: 12px;">
+            <img src="img/appIcons/PawCalc.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Calc</p>
+        </div>
+
+        <div class="icon" onclick="handleIconTap(this, pawPaintScreen); resizeCanvas()" style="width: 80px;">
+            <img src="img/appIcons/PawPaint.png" width="64px" style="border-radius: 12px;">
+            <p style="margin: 0px;">Paw Paint</p>
         </div>
     </div>
 
@@ -238,11 +283,11 @@
         <div class="widget" id="calendarWidget" >
             <div id="calendar">
                 <div id="header">
-                    <button class="skipMonth" id="prevMonth"><img src="img/arrow.png" alt="" width="25px" style="rotate: -90deg;"></button>
+                    <button class="skipMonth" id="prevMonth"><img src="img/UIicons/arrow.png" alt="" width="25px" style="rotate: -90deg;"></button>
                     <div id="headerDisplay">
                         <p id="display"></p>
                     </div>
-                    <button class="skipMonth" id="nextMonth"><img src="img/arrow.png" alt="" width="25px" style="rotate: 90deg;"></button>
+                    <button class="skipMonth" id="nextMonth"><img src="img/UIicons/arrow.png" alt="" width="25px" style="rotate: 90deg;"></button>
                 </div>
 
                 <div id="week">
@@ -268,5 +313,6 @@
     <script src="js/calc.js"></script>
     <script src="js/calendar.js"></script>
     <script src="js/settings.js"></script>
+    <script src="js/paint.js"></script>
 </body>
 </html>

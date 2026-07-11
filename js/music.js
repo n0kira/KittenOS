@@ -124,11 +124,11 @@ playButton.addEventListener("click", () => {
     if (!isPlaying) {
         audio.play();
         isPlaying = true;
-        playButtonImage.src = "img/pause.png";
+        playButtonImage.src = "img/UIicons/pause.png";
     } else {
         audio.pause();
         isPlaying = false;
-        playButtonImage.src = "img/play.png";
+        playButtonImage.src = "img/UIicons/play.png";
     }
 });
 
@@ -164,7 +164,7 @@ meowSicScreenClose.addEventListener("click", () => {
     closeWindow(meowSicScreen);
     audio.pause();
     isPlaying = false;
-    playButtonImage.src = "img/play.png";
+    playButtonImage.src = "img/UIicons/play.png";
 });
 
 
