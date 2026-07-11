@@ -399,6 +399,108 @@ input[name="timeFormat"] {
     cursor: pointer;
 }
 
+#folder {
+    width: 600px;
+    height: 500px;
+    overflow: hidden;
+}
+
+#folderContent {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    margin-top: 22px;
+}
+
+#pawNet {
+    width: 600px;
+    height: 500px;
+}
+
+#webContainer {
+    border: 3px solid;
+    margin: 10px;
+    border-radius: 10px;
+    height: 80%;
+}
+
+#webContent {
+    width: 100%;
+    height: 100%;
+}
+
+#pawNetSearchbar {
+    width: 100%;
+    margin-top: 8px;
+    display: flex;
+    justify-content: center;
+}
+
+#pawGame {
+    width: 700px;
+    height: 500px;
+}
+
+#pawGameContent {
+    margin-top: 12px;
+    display: flex;
+    height: 75%;
+}
+
+#pawGameplay {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: solid;
+    border-right: none;
+}
+
+#pawSideBar {
+    border: solid;
+    width: 45%;
+}
+
+#pawSideBar button {
+    width: 100%;
+    height: 40px;
+}
+
+#pawGameStats {
+    display: flex; 
+    width: 100%; 
+    justify-content: center;
+}
+
+#pawGameStats p {
+    margin: 12px;
+}
+
+.upgradeTitle {
+    font-weight: bold;
+}
+
+.upgradeDescription {
+    font-size: 12px;
+}
+
+.upgradeCost {
+    font-weight: bold;
+}
+
+.searchButton {
+    border-radius: 12px;
+    margin-left: 5px;
+    margin-right: 5px;
+    background: none;
+    border: solid 2px;
+    padding: 3px;
+    cursor: pointer;
+}
+
+.searchButton:active {
+    transform: scale(90%);
+}
+
 .tool {
     display: flex; 
     flex-direction: column;

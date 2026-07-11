@@ -63,6 +63,8 @@ const welcomeScreen = document.getElementById('welcome');
 const welcomeScreenClose = document.getElementById('welcomeClose');
 const welcomeScreenOpen = document.getElementById('welcomeOpen');
 
+const hasVisited = localStorage.getItem("visited") || "false";
+
 function closeWindow(element) {
     element.style.display = "none";
 }
@@ -73,7 +75,15 @@ function openWindow(element) {
     element.style.zIndex = biggestIndex;
 }
 
-welcomeScreenClose.addEventListener("click", () => closeWindow(welcomeScreen));
+if (hasVisited == "false") {
+    welcomeScreen.style.display = "block";
+}
+
+welcomeScreenClose.addEventListener("click", () => {
+
+    localStorage.setItem("visited", "true");
+    closeWindow(welcomeScreen);
+});
 
 welcomeScreenOpen.addEventListener("click", () => openWindow(welcomeScreen));
 
@@ -111,14 +121,23 @@ let biggestIndex = 1;
 
 function addWindowTapHandling(element) {
     element.addEventListener("mousedown", () => {
-        handleWindowTap(element);
-    })
+        if (element.id == "folder") {
+            handleWindowTapFolder(element);
+        } else {
+            handleWindowTap(element);
+        }
+    });
 }
 
 function handleWindowTap(element) {
     biggestIndex++;
     element.style.zIndex = biggestIndex;
     deselectIcon(selectedIcon);
+}
+
+function handleWindowTapFolder(element) {
+    biggestIndex++;
+    element.style.zIndex = biggestIndex;
 }
 
 

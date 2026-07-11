@@ -13,9 +13,9 @@
 
     <!-- 
         TODO: 
-        - Folder (static non user created)
+        - DONE! Folder (static non user created)
         - DONE! PawPaint (Paint app)
-        - PawBrowser ?? 
+        - DONE! (kinda.. :( ) PawBrowser ?? 
         - PawCmd (Cmd with a few commands)
         - Cat game?
         - Pet on desktop?
@@ -28,7 +28,7 @@
     </div>
 
     <!-- Welcome Message App -->
-    <div class="window" id="welcome">
+    <div class="window" id="welcome" style="display: none;">
         <div class="windowHeader" id="welcomeHeader">
             <p style="margin-left: 10px;"><b>Welcome Message</b></p>
             <button class="closeButton" id="welcomeClose" style="margin-right: 10px;"></button>
@@ -243,38 +243,105 @@
 
     </div>
 
+    <!-- Paw Net -->
+    <div class="window" id="pawNet" style="display: none;">
+        <div class="windowHeader" id="pawNetHeader">
+            <p style="margin-left: 10px;"><b>pawNet</b></p>
+            <button class="closeButton" id="pawNetClose" style="margin-right: 10px;"></button>
+        </div>
 
+        <div id="pawNetSearchbar">
+            <button class="searchButton">WikiPedia.org</button>
+            <button class="searchButton">Archive.org</button>
+            <button class="searchButton">OpenLibrary.org</button>
+        </div>
+
+        <div id="webContainer">
+            <iframe id="webContent" src="https://wikipedia.org" frameborder="0"></iframe>
+        </div>
+    </div>
+
+    <!-- Paw Gaem -->
+     <div class="window" id="pawGame" style="display: block;">
+        <div class="windowHeader" id="pawGameHeader">
+            <p style="margin-left: 10px;"><b>pawGame</b></p>
+            <button class="closeButton" id="pawGameClose" style="margin-right: 10px;"></button>
+        </div>
+        
+        <div id="pawGameStats">
+            <p>Power: 0</p>
+            <p>Power Per Second: 0</p>
+        </div>
+
+        <div id="pawGameContent">
+            
+            <div id="pawGameplay">
+                <img id="pawGameClicker" src="img/figma/kitten.png" width="50%" height="75%">
+            </div>
+            <div id="pawSideBar">
+                <button><span class="upgradeTitle">Kitten power</span><br><span class="upgradeDescription">+1 PPS | Cost: <span class="upgradeCost">0</span> </span></button>
+            </div>
+        </div>
+
+    </div>
 
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px; user-select: none;">
+
         <div class="icon" onclick="handleIconTap(this, pawConfig)" style="width: 80px;">
             <img src="img/appIcons/PawConfig.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Config</p>
         </div>
         
-        <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
-            <img src="img/appIcons/PawNotes.png" width="64px" style="border-radius: 12px;">
-            <p style="margin: 0px;">Paw Notes</p>
+        <div class="icon" onclick="handleIconTap(this, pawNet)" style="width: 80px;">
+            <img src="img/appIcons/PawNet.png" width="64px" style="border-radius: 12px;">
+            <p style="margin: 0px;">Paw Net</p>
+        </div>
+        
+        <div class="window" id="folder" style="display: none;">
+            <div class="windowHeader" id="folderHeader">
+                <p style="margin-left: 10px;"><b>Paws Folder</b></p>
+                <button class="closeButton" id="folderClose" style="margin-right: 10px;"></button>
+            </div>
+            
+            <div id="folderContent">
+                
+                <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
+                    <img src="img/appIcons/PawNotes.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Paw Notes</p>
+                </div>
+
+                <div class="icon" onclick="handleIconTap(this, pawPicsScreen)" style="width: 80px;">
+                    <img src="img/appIcons/PawPics.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Paw Pics</p>
+                </div>
+
+                <div class="icon" onclick="handleIconTap(this, meowSicScreen)" style="width: 80px;">
+                    <img src="img/appIcons/MeowSic.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Meow Sic</p>
+                </div>
+
+                <div class="icon" onclick="handleIconTap(this, pawCalcScreen)" style="width: 80px;">
+                    <img src="img/appIcons/PawCalc.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Paw Calc</p>
+                </div>
+
+                <div class="icon" onclick="handleIconTap(this, pawPaintScreen); resizeCanvas()" style="width: 80px;">
+                    <img src="img/appIcons/PawPaint.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Paw Paint</p>
+                </div>
+
+                <div class="icon" onclick="handleIconTap(this, pawGameScreen); resizeCanvas()" style="width: 80px;">
+                    <img src="img/appIcons/PawGame.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Paw Game</p>
+                </div>
+            </div>
+
         </div>
 
-        <div class="icon" onclick="handleIconTap(this, pawPicsScreen)" style="width: 80px;">
-            <img src="img/appIcons/PawPics.png" width="64px" style="border-radius: 12px;">
-            <p style="margin: 0px;">Paw Pics</p>
-        </div>
-
-        <div class="icon" onclick="handleIconTap(this, meowSicScreen)" style="width: 80px;">
-            <img src="img/appIcons/MeowSic.png" width="64px" style="border-radius: 12px;">
-            <p style="margin: 0px;">Meow Sic</p>
-        </div>
-
-        <div class="icon" onclick="handleIconTap(this, pawCalcScreen)" style="width: 80px;">
-            <img src="img/appIcons/PawCalc.png" width="64px" style="border-radius: 12px;">
-            <p style="margin: 0px;">Paw Calc</p>
-        </div>
-
-        <div class="icon" onclick="handleIconTap(this, pawPaintScreen); resizeCanvas()" style="width: 80px;">
-            <img src="img/appIcons/PawPaint.png" width="64px" style="border-radius: 12px;">
-            <p style="margin: 0px;">Paw Paint</p>
+        <div class="icon" onclick="handleIconTap(this, folder); resizeCanvas()" style="width: 80px;">
+            <img src="img/appIcons/Folder.png" width="64px" style="border-radius: 12px;">
+            <p style="margin: 0px;">Paws Folder</p>
         </div>
     </div>
 
@@ -314,5 +381,8 @@
     <script src="js/calendar.js"></script>
     <script src="js/settings.js"></script>
     <script src="js/paint.js"></script>
+    <script src="js/folder.js"></script>
+    <script src="js/browser.js"></script>
+
 </body>
 </html>
