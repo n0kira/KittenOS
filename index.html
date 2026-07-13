@@ -18,12 +18,17 @@
         - DONE! (kinda.. :( ) PawBrowser ?? 
         - DONE! PawCmd (Cmd with a few commands)
         - DONE! Cat game?
-        - Pet on desktop?
+        - DONE! add sounds
+        - add background customization
+        - add one more app
+        - toggle date in top bar
+        - scientific calc?
+        - fish game? (for kittens)
     -->
 
     <div id="topbar">
         <p id="greetings">Greetings</p>
-        <p id="welcomeOpen">KittenOS</p>
+        <p id="welcomeOpen" class="uiButton">KittenOS</p>
         <p id="time">Time</p>
     </div>
 
@@ -31,33 +36,33 @@
     <div class="window" id="welcome" style="display: none;">
         <div class="windowHeader" id="welcomeHeader">
             <p style="margin-left: 10px;"><b>Welcome Message</b></p>
-            <button class="closeButton" id="welcomeClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="welcomeClose" style="margin-right: 10px;"></button>
         </div>
         <h1>Welcome to KittenOS</h1>
         <div id="intro-message">
             <img id="profilepic" src="img/profile.png" alt="Profile Picture" width="150px">
             <p>Hello, this is <i>KittenOS</i>, take a moment to explore all the features! <br> I always loved web development but never found the opportunity to make something real. <br>But today I'm making <b>my own</b> WebOS!</p>
         </div>
-        <a href="https://www.youtube.com/watch?v=SWkMYO9V_-k">Cat.</a>
+        <a class="uiButton" href="https://www.youtube.com/watch?v=SWkMYO9V_-k">Cat.</a>
     </div>
 
     <!-- Paw Notes App -->
     <div class="window" id="pawNotes" style="display: none;">
         <div class="windowHeader" id="pawNotesHeader">
             <p style="margin-left: 10px;"><b>PawNotes</b></p>
-            <button class="closeButton" id="pawNotesClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawNotesClose" style="margin-right: 10px;"></button>
         </div>
         <div style="display: flex; border: 3px solid; margin: 10px; border-radius: 10px; height: 350px;">
 
-            <div id="sidebar">
+            <div id="sidebar" class="uiButton">
             </div>
 
             <div id="notesContent">
             </div>
 
             <div style="position: absolute; bottom: 5px; right: 40px;">
-                <button class="notesButtons" id="pawNotesNewBtn">New</button>
-                <button class="notesButtons" id="pawNotesDelBtn">Delete</button>
+                <button class="notesButtons uiButton" id="pawNotesNewBtn">New</button>
+                <button class="notesButtons uiButton" id="pawNotesDelBtn">Delete</button>
             </div>
         </div>
     </div>
@@ -66,7 +71,7 @@
     <div class="window" id="pawPics" style="display: none;">
         <div class="windowHeader" id="pawPicsHeader">
             <p style="margin-left: 10px;"><b>PawPics</b></p>
-            <button class="closeButton" id="pawPicsClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawPicsClose" style="margin-right: 10px;"></button>
         </div>
         <div style="text-align: center;">
             <h2>Welcome to PawPics!</h2>
@@ -77,9 +82,9 @@
             </p>
         </div>
         <div id="pawPicsContainer">
-            <button class="pawPicsBtn" id="pawPicsPrev"><img class="pawBtnImg" src="img/UIicons/arrow.png" alt="" width="30px" style="rotate: -90deg;"></button>
+            <button class="pawPicsBtn uiButton" id="pawPicsPrev"><img class="pawBtnImg" src="img/UIicons/arrow.png" alt="" width="30px" style="rotate: -90deg;"></button>
             <img id="pawPicsSlot" src="img/kitties/kit1.jpg" alt="Amazing Cat Picture" width="500px" height="450px">
-            <button class="pawPicsBtn" id="pawPicsNext"><img class="pawBtnImg" src="img/UIicons/arrow.png" alt="" width="30px" style="rotate: 90deg;"></button>
+            <button class="pawPicsBtn uiButton" id="pawPicsNext"><img class="pawBtnImg" src="img/UIicons/arrow.png" alt="" width="30px" style="rotate: 90deg;"></button>
         </div>
     </div>
 
@@ -104,9 +109,9 @@
                 </div>
                 
                 <div id="meowSicControls">
-                    <button class="controlButtons" id="previousSong"><img src="img/UIicons/previous.png" alt="" ></button>
-                    <button class="controlButtons" id="playSong"><img id="playPauseImage" src="img/UIicons/play.png" alt=""></button>
-                    <button class="controlButtons" id="nextSong"><img src="img/UIicons/next.png" alt=""></button>
+                    <button class="controlButtons uiButton" id="previousSong"><img src="img/UIicons/previous.png" alt="" ></button>
+                    <button class="controlButtons uiButton" id="playSong"><img id="playPauseImage" src="img/UIicons/play.png" alt=""></button>
+                    <button class="controlButtons uiButton" id="nextSong"><img src="img/UIicons/next.png" alt=""></button>
                 </div>
                 
             </div>
@@ -117,7 +122,7 @@
     <div class="window" id="pawCalc" style="display: none;">
         <div class="windowHeader" id="pawCalcHeader">
             <p style="margin-left: 10px;"><b>PawCalc</b></p>
-            <button class="closeButton" id="pawCalcClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawCalcClose" style="margin-right: 10px;"></button>
         </div>
         
        <div>
@@ -128,27 +133,27 @@
             <div id="pawCalcContainer">
                 <button class="pawCalcBtn" id="pawCalcClear">AC</button>
                 <button class="pawCalcBtn" id="pawCalcDelete">C</button>
-                <button class="pawCalcBtn pawCalcOperand">%</button>
-                <button class="pawCalcBtn pawCalcOperand">/</button>
+                <button class="pawCalcBtn pawCalcOperand ">%</button>
+                <button class="pawCalcBtn pawCalcOperand ">/</button>
 
-                <button class="pawCalcBtn pawCalcNum">7</button>
-                <button class="pawCalcBtn pawCalcNum">8</button>
-                <button class="pawCalcBtn pawCalcNum">9</button>
-                <button class="pawCalcBtn pawCalcOperand">*</button>
+                <button class="pawCalcBtn pawCalcNum ">7</button>
+                <button class="pawCalcBtn pawCalcNum ">8</button>
+                <button class="pawCalcBtn pawCalcNum ">9</button>
+                <button class="pawCalcBtn pawCalcOperand ">*</button>
 
-                <button class="pawCalcBtn pawCalcNum">4</button>
-                <button class="pawCalcBtn pawCalcNum">5</button>
-                <button class="pawCalcBtn pawCalcNum">6</button>
-                <button class="pawCalcBtn pawCalcOperand">-</button>
+                <button class="pawCalcBtn pawCalcNum ">4</button>
+                <button class="pawCalcBtn pawCalcNum ">5</button>
+                <button class="pawCalcBtn pawCalcNum ">6</button>
+                <button class="pawCalcBtn pawCalcOperand ">-</button>
 
-                <button class="pawCalcBtn pawCalcNum">1</button>
-                <button class="pawCalcBtn pawCalcNum">2</button>
-                <button class="pawCalcBtn pawCalcNum">3</button>
-                <button class="pawCalcBtn pawCalcOperand">+</button>
+                <button class="pawCalcBtn pawCalcNum ">1</button>
+                <button class="pawCalcBtn pawCalcNum ">2</button>
+                <button class="pawCalcBtn pawCalcNum ">3</button>
+                <button class="pawCalcBtn pawCalcOperand ">+</button>
 
-                <button class="pawCalcBtn pawCalcNum">0</button>
-                <button class="pawCalcBtn pawCalcNum">.</button>
-                <button class="pawCalcBtn" id="pawCalcEquals">=</button>
+                <button class="pawCalcBtn pawCalcNum ">0</button>
+                <button class="pawCalcBtn pawCalcNum ">.</button>
+                <button class="pawCalcBtn " id="pawCalcEquals">=</button>
             </div>
        </div>
 
@@ -158,7 +163,7 @@
     <div class="window" id="pawConfig" style="display: none;">
         <div class="windowHeader" id="pawConfigHeader">
             <p style="margin-left: 10px;"><b>PawConfig</b></p>
-            <button class="closeButton" id="pawConfigClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawConfigClose" style="margin-right: 10px;"></button>
         </div>
         
          <div style="display: flex; border: 3px solid; margin: 10px; border-radius: 10px; height: 350px;">
@@ -171,13 +176,13 @@
                 <div id="userSettings" style="font-size: 20px; display: block;">
                     <div style="display: flex; flex-direction: column; align-items: center; margin-bottom: 25px;">
                         <img src="img/cat.jpg" id="pfp" width="125px" height="125px" style="border-radius: 50%; border: solid;">
-                        <button id="editPfp" style="font-size: 12px; margin: 6px;">Edit</button>
+                        <button class="uiButton" id="editPfp" style="font-size: 12px; margin: 6px;">Edit</button>
                         <input type="file" id="pfpInput" accept="image/*" style="display: none;">
                     </div>
 
                     <div class="userSettingField">
                         <p style="margin: 0;">Username:</p>
-                        <p id="usernameField" contenteditable="true" style="margin: 0;">User</p>
+                        <p id="usernameField" class="uiType" contenteditable="true" style="margin: 0;">User</p>
                     </div>
 
                     <div class="userSettingField">
@@ -190,9 +195,9 @@
 
                         <div style="display: flex;">
                             <p style="margin: 0; margin-right: 4px;">12h</p>
-                            <input style="margin: 0;" type="radio" name="timeFormat" id="format12h" value="12">
+                            <input class="uiChoice" style="margin: 0;" type="radio" name="timeFormat" id="format12h" value="12">
                             <p style="margin: 0 4px 0 16px;">24h</p>
-                            <input style="margin: 0;" type="radio" name="timeFormat" id="format24h" value="24" checked>
+                            <input class="uiChoice" style="margin: 0;" type="radio" name="timeFormat" id="format24h" value="24" checked>
                         </div>
                     </div>
                 </div>
@@ -206,7 +211,7 @@
     <div class="window" id="pawPaint" style="display: none;">
         <div class="windowHeader" id="pawPaintHeader">
             <p style="margin-left: 10px;"><b>pawPaint</b></p>
-            <button class="closeButton" id="pawPaintClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawPaintClose" style="margin-right: 10px;"></button>
         </div>
         
         <div id="pawPaintContainer">
@@ -225,11 +230,11 @@
                 
                <div class="toolSection">
                     <div class="tool">
-                        <button id="clear">Clear</button>
+                        <button class="uiButton" id="clear">Clear</button>
                     </div>
 
                     <div class="tool">
-                        <button id="savePng">Save</button>
+                        <button class="uiButton" id="savePng">Save</button>
                     </div>
                </div>
             </div>
@@ -247,13 +252,13 @@
     <div class="window" id="pawNet" style="display: none;">
         <div class="windowHeader" id="pawNetHeader">
             <p style="margin-left: 10px;"><b>pawNet</b></p>
-            <button class="closeButton" id="pawNetClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawNetClose" style="margin-right: 10px;"></button>
         </div>
 
         <div id="pawNetSearchbar">
-            <button class="searchButton">WikiPedia.org</button>
-            <button class="searchButton">Archive.org</button>
-            <button class="searchButton">OpenLibrary.org</button>
+            <button class="searchButton uiButton">WikiPedia.org</button>
+            <button class="searchButton uiButton">Archive.org</button>
+            <button class="searchButton uiButton">OpenLibrary.org</button>
         </div>
 
         <div id="webContainer">
@@ -265,7 +270,7 @@
     <div class="window" id="pawGame" style="display: none;">
         <div class="windowHeader" id="pawGameHeader">
             <p style="margin-left: 10px;"><b>pawGame</b></p>
-            <button class="closeButton" id="pawGameClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawGameClose" style="margin-right: 10px;"></button>
         </div>
         
         <div id="pawGameStats">
@@ -273,7 +278,7 @@
         </div>
 
         <div id="pawGameContent" style="border: solid;">
-            <button id="pawGameStart"> Start </button>
+            <button class="uiButton" id="pawGameStart"> Start </button>
         </div>
 
     </div>
@@ -282,13 +287,13 @@
     <div class="window" id="pawCmd" style="display: none;">
         <div class="windowHeader" id="pawCmdHeader">
             <p style="margin-left: 10px;"><b>pawCmd</b></p>
-            <button class="closeButton" id="pawCmdClose" style="margin-right: 10px;"></button>
+            <button class="closeButton " id="pawCmdClose" style="margin-right: 10px;"></button>
         </div>
         
         <div id="pawCmdContent">
             <div id="inputLine">
                 <pre id="cmdPrompt"></pre>
-                <div id="pawCmdInput" contenteditable="true" spellcheck="false"></div>  
+                <div id="pawCmdInput" contenteditable="true" spellcheck="false" class="uiType"></div>  
             </div>
 
             <div>
@@ -302,12 +307,12 @@
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px; user-select: none;">
 
-        <div class="icon" onclick="handleIconTap(this, pawConfigScreen)" style="width: 80px;">
+        <div class="icon " onclick="handleIconTap(this, pawConfigScreen)" style="width: 80px;">
             <img src="img/appIcons/PawConfig.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Config</p>
         </div>
         
-        <div class="icon" onclick="handleIconTap(this, pawNetScreen)" style="width: 80px;">
+        <div class="icon " onclick="handleIconTap(this, pawNetScreen)" style="width: 80px;">
             <img src="img/appIcons/PawNet.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paw Net</p>
         </div>
@@ -315,42 +320,42 @@
         <div class="window" id="folder" style="display: none;">
             <div class="windowHeader" id="folderHeader">
                 <p style="margin-left: 10px;"><b>Paws Folder</b></p>
-                <button class="closeButton" id="folderClose" style="margin-right: 10px;"></button>
+                <button class="closeButton " id="folderClose" style="margin-right: 10px;"></button>
             </div>
             
             <div id="folderContent">
                 
-                <div class="icon" onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawNotesScreen)" style="width: 80px;">
                     <img src="img/appIcons/PawNotes.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Notes</p>
                 </div>
 
-                <div class="icon" onclick="handleIconTap(this, pawPicsScreen)" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawPicsScreen)" style="width: 80px;">
                     <img src="img/appIcons/PawPics.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Pics</p>
                 </div>
 
-                <div class="icon" onclick="handleIconTap(this, meowSicScreen)" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, meowSicScreen)" style="width: 80px;">
                     <img src="img/appIcons/MeowSic.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Meow Sic</p>
                 </div>
 
-                <div class="icon" onclick="handleIconTap(this, pawCalcScreen)" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawCalcScreen)" style="width: 80px;">
                     <img src="img/appIcons/PawCalc.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Calc</p>
                 </div>
 
-                <div class="icon" onclick="handleIconTap(this, pawPaintScreen); resizeCanvas()" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawPaintScreen); resizeCanvas()" style="width: 80px;">
                     <img src="img/appIcons/PawPaint.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Paint</p>
                 </div>
 
-                <div class="icon" onclick="handleIconTap(this, pawGameScreen); resizeCanvas()" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawGameScreen); resizeCanvas()" style="width: 80px;">
                     <img src="img/appIcons/PawGame.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Game</p>
                 </div>
                 
-                <div class="icon" onclick="handleIconTap(this, pawCmdScreen); resizeCanvas()" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawCmdScreen); resizeCanvas()" style="width: 80px;">
                     <img src="img/appIcons/PawCmd.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Cmd</p>
                 </div>
@@ -358,7 +363,7 @@
 
         </div>
 
-        <div class="icon" onclick="handleIconTap(this, folder); resizeCanvas()" style="width: 80px;">
+        <div class="icon " onclick="handleIconTap(this, folder); resizeCanvas()" style="width: 80px;">
             <img src="img/appIcons/Folder.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paws Folder</p>
         </div>
@@ -369,11 +374,11 @@
         <div class="widget" id="calendarWidget" >
             <div id="calendar">
                 <div id="header">
-                    <button class="skipMonth" id="prevMonth"><img src="img/UIicons/arrow.png" alt="" width="25px" style="rotate: -90deg;"></button>
+                    <button class="skipMonth uiButton" id="prevMonth"><img src="img/UIicons/arrow.png" alt="" width="25px" style="rotate: -90deg;"></button>
                     <div id="headerDisplay">
                         <p id="display"></p>
                     </div>
-                    <button class="skipMonth" id="nextMonth"><img src="img/UIicons/arrow.png" alt="" width="25px" style="rotate: 90deg;"></button>
+                    <button class="skipMonth uiButton" id="nextMonth"><img src="img/UIicons/arrow.png" alt="" width="25px" style="rotate: 90deg;"></button>
                 </div>
 
                 <div id="week">
@@ -392,18 +397,18 @@
         </div>
     </div>
 
-    <script src="js/core.js"></script>
-    <script src="js/notes.js"></script>
-    <script src="js/pics.js"></script>
-    <script src="js/music.js"></script>
-    <script src="js/calc.js"></script>
-    <script src="js/calendar.js"></script>
-    <script src="js/settings.js"></script>
-    <script src="js/paint.js"></script>
-    <script src="js/folder.js"></script>
-    <script src="js/browser.js"></script>
-    <script src="js/clicker.js"></script>
-    <script src="js/cmd.js"></script>
+    <script src="js/core.js" defer></script>
+    <script src="js/notes.js" defer></script>
+    <script src="js/pics.js" defer></script>
+    <script src="js/music.js" defer></script>
+    <script src="js/calc.js" defer></script>
+    <script src="js/calendar.js" defer></script>
+    <script src="js/settings.js" defer></script>
+    <script src="js/paint.js" defer></script>
+    <script src="js/folder.js" defer></script>
+    <script src="js/browser.js" defer></script>
+    <script src="js/clicker.js" defer></script>
+    <script src="js/cmd.js" defer></script>
 
 </body>
 </html>

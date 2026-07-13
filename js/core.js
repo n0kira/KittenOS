@@ -146,3 +146,83 @@ function initializeWindow(elementName) {
     addWindowTapHandling(screen);
     dragElement(screen);
 }
+
+
+// Add sound to all "buttons"
+
+const closeButtons = document.querySelectorAll(`.closeButton`);
+const closeAudio = new Audio();
+closeAudio.src = "sound/tap_02.mp3";
+closeAudio.preload = "auto";
+
+closeButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        closeAudio.pause();
+        closeAudio.currentTime = 0;
+        closeAudio.play();
+    });
+});
+
+const openButtons = document.querySelectorAll(`.icon`);
+const openAudio = new Audio();
+openAudio.src = "sound/tap_05.mp3";
+openAudio.preload = "auto";
+
+openButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        openAudio.pause();
+        openAudio.currentTime = 0;
+        openAudio.play();
+    });
+});
+
+const uiButtons = document.querySelectorAll(`.uiButton`);
+const uiAudio = new Audio();
+uiAudio.src = "sound/tap_03.mp3";
+uiAudio.preload = "auto";
+
+uiButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        uiAudio.pause();
+        uiAudio.currentTime = 0;
+        uiAudio.play();
+    });
+});
+
+const calcButtons = document.querySelectorAll(`.pawCalcBtn`);
+const calcAudio = new Audio();
+calcAudio.src = "sound/type_04.mp3";
+calcAudio.preload = "auto";
+
+calcButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        calcAudio.pause();
+        calcAudio.currentTime = 0;
+        calcAudio.play();
+    });
+});
+
+const choiceButtons = document.querySelectorAll(`.uiChoice`);
+const choiceAudio = new Audio();
+choiceAudio.src = "sound/toggle_on.mp3";
+choiceAudio.preload = "auto";
+
+choiceButtons.forEach(button => {
+    button.addEventListener("click", () => {
+        choiceAudio.pause();
+        choiceAudio.currentTime = 0;
+        choiceAudio.play();
+    });
+});
+
+const typeAudio = new Audio();
+typeAudio.src = "sound/type_03.mp3";
+typeAudio.preload = "auto";
+
+document.addEventListener("input", (e) => {
+    if (e.target.classList.contains("uiType")) {
+        typeAudio.pause();
+        typeAudio.currentTime = 0;
+        typeAudio.play();
+    }
+});

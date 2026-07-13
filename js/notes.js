@@ -61,10 +61,10 @@ function setNotesContent(index) {
          notesContent.innerHTML = "";
     } else {
         notesContent.innerHTML = `
-             <h2 contenteditable="true" class="noteTitle"> 
+             <h2 contenteditable="true" class="noteTitle uiType"> 
                 ${content[index].title}
             </h2>
-            <p contenteditable="true" class="noteContent">${content[index].content}</p>
+            <p contenteditable="true" class="noteContent uiType">${content[index].content}</p>
         `
     }
 }
@@ -175,8 +175,6 @@ function reloadSidebar() {
         selectedNote = null;
     }
 }
-
-
 
 pawNotesScreenClose.addEventListener("click", () => closeWindow(pawNotesScreen));
 

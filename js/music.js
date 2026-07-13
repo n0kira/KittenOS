@@ -25,7 +25,7 @@ let musicQueue = [
         title: "Honey Jam",
         author: "massobeats",
         totalLength: "2:13",
-        path: "HoneyJam"
+        path: "Honeyjam"
     },
     {
         title: "Gingersweet",
