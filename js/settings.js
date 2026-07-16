@@ -150,4 +150,39 @@ if (savedPfp) {
     pfp.src = savedPfp;
 }
 
+// Edit background
+
+const body = document.body;
+const backgroundBtn = document.getElementById('editBackground');
+const backgroundInp = document.getElementById('backgroundInput');
+const resetBtn = document.getElementById('resetBackground');
+
+resetBtn.addEventListener("click", () => {
+    body.style.backgroundImage = "url('img/live-background.gif')"
+});
+
+backgroundBtn.addEventListener("click", () => backgroundInp.click())
+
+backgroundInp.addEventListener("change", function(element) {
+    let file = element.target.files[0];
+    if (!file) return;
+
+    let reader = new FileReader();
+    reader.onload = function(event) {
+        let base64String = event.target.result;
+        if (base64String.length >= 4_000_000) {
+            alert("Image is too big! Try another one :)");
+            return
+        }
+        body.style.backgroundImage = `url(${base64String})`;
+        localStorage.setItem("kittenOS-Background", base64String);
+    };
+    reader.readAsDataURL(file);
+});
+
+let savedBackground = localStorage.getItem("kittenOS-Background");
+if (savedBackground) {
+    body.style.backgroundImage = `url(${savedBackground})`;
+}
+
 initializeWindow("pawConfig");

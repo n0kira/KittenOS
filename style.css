@@ -319,7 +319,7 @@ input[name="timeFormat"] {
     overflow-x: hidden;
 }
 
-#editPfp {
+#editPfp, #resetBackground, #editBackground {
     background: linear-gradient(15deg, rgba(225, 156, 255, 0.6) 0%, rgba(255, 241, 252, 0.6) 100%);
     border: 2px rgb(234, 185, 255) solid;
     border-radius: 16px;

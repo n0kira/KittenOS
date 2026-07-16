@@ -19,7 +19,7 @@
         - DONE! PawCmd (Cmd with a few commands)
         - DONE! Cat game?
         - DONE! add sounds
-        - add background customization
+        - DONE! add background customization
         - add one more app
         - toggle date in top bar
         - scientific calc?
@@ -199,6 +199,13 @@
                             <p style="margin: 0 4px 0 16px;">24h</p>
                             <input class="uiChoice" style="margin: 0;" type="radio" name="timeFormat" id="format24h" value="24" checked>
                         </div>
+                    </div>
+
+                    <div class="userSettingField">
+                        <p style="margin: 0;">Background file:</p>
+                        <button id="resetBackground">reset</button>
+                        <button class="uiButton" id="editBackground">Edit</button>
+                        <input type="file" id="backgroundInput" accept="image/*, gif/*" style="display: none;">
                     </div>
                 </div>
             </div>
