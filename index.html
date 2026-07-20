@@ -21,7 +21,7 @@
         - DONE! add sounds
         - DONE! add background customization
         - add one more app
-        - toggle date in top bar
+        - DONE! toggle date in top bar
         - scientific calc?
         - fish game? (for kittens)
     -->
@@ -29,7 +29,11 @@
     <div id="topbar">
         <p id="greetings">Greetings</p>
         <p id="welcomeOpen" class="uiButton">KittenOS</p>
-        <p id="time">Time</p>
+        <div style="display: flex;">
+            <p id="date">Date</p>
+            <pre> </pre>
+            <p id="time">Time</p>
+        </div>
     </div>
 
     <!-- Welcome Message App -->
@@ -160,7 +164,7 @@
     </div>
 
     <!-- Paw Config -->
-    <div class="window" id="pawConfig" style="display: none;">
+    <div class="window" id="pawConfig" style="display: block;">
         <div class="windowHeader" id="pawConfigHeader">
             <p style="margin-left: 10px;"><b>PawConfig</b></p>
             <button class="closeButton " id="pawConfigClose" style="margin-right: 10px;"></button>
@@ -198,6 +202,14 @@
                             <input class="uiChoice" style="margin: 0;" type="radio" name="timeFormat" id="format12h" value="12">
                             <p style="margin: 0 4px 0 16px;">24h</p>
                             <input class="uiChoice" style="margin: 0;" type="radio" name="timeFormat" id="format24h" value="24" checked>
+                        </div>
+                    </div>
+                    
+                    <div class="userSettingField">
+                        <p style="margin: 0;">Show date in topbar:</p>
+
+                        <div style="display: flex;">
+                            <input class="uiChoice" style="margin: 0;" type="checkbox" name="showDate" id="showDate">
                         </div>
                     </div>
 

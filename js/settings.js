@@ -38,6 +38,26 @@ americanFormatBtn.addEventListener("change", updateTime);
 updateTime();
 setInterval(updateTime, 60000);
 
+// Show date in topbar
+const showDateBtn = document.getElementById('showDate');
+const dateText = document.getElementById('date');
+
+dateText.innerHTML = new Date().toLocaleDateString();
+
+if (showDateBtn.checked) {
+    dateText.style.visibility = "visible";
+} else {
+    dateText.style.visibility = "hidden";
+}
+
+showDateBtn.addEventListener("change", () => {
+    if (showDateBtn.checked) {
+        dateText.style.visibility = "visible";
+    } else {
+        dateText.style.visibility = "hidden";
+    }
+});
+
 // Edit Username
 const userField = document.getElementById('usernameField');
 let user = localStorage.getItem("kittenOS-user") || "User";

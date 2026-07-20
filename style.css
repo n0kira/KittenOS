@@ -17,8 +17,8 @@ input[name="timeFormat"] {
 }
 
 #topbar {
-    display: grid;
-    grid-template-columns: 1fr auto 1fr;
+    display: flex;
+    justify-content: space-between;
     align-items: center;
     position: absolute;
     width: 99%;
