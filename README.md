@@ -13,8 +13,13 @@ The current available applications are:
 - **PawNotes** 🐈📝: Create and save your personal notes! Every change is saved automatically
 - **PawPics** 🐈‍⬛📷: Scroll through some images of cats
 - **MeowSic** 🐈🎵: A music player application, listen to some lo-fi beats and relax!
-- **PawCalc** 🐈‍⬛🧮: Just your usual calc (short for calculator) 
-- **PawConfig** 🐈⚙️: Customize your username, profile picture and birth date to make the OS feel yours!
+- **PawCalc** 🐈‍⬛🧮: Just your usual calc (short for calculator btw) 
+- **PawConfig** 🐈⚙️: Customize your username, background, profile picture and birth date to make the OS feel yours!
+- **PawNet** 🐈‍⬛🌐: Search any information in the World Wide Web!
+- **PawPaint** 🐈🎨: Pain anything you want and save your beautiful drawings!
+- **PawGame** 🐈‍⬛🧶: Try and collect as much yarn balls as you can!
+- **PawCmd** 🐈💻: Execute commands like a real hacker!
+- **PawWeather** 🐈‍⬛⛅: Check the weather to see if it's the right day for a walk!  
 
 There is even a calendar widget on your desktop! It shows the current date (obviously) and highlights your birthday!
 

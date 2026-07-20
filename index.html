@@ -20,16 +20,15 @@
         - DONE! Cat game?
         - DONE! add sounds
         - DONE! add background customization
-        - add one more app
+        - DONE! add weather app
         - DONE! toggle date in top bar
-        - scientific calc?
-        - fish game? (for kittens)
+        - update README
     -->
 
     <div id="topbar">
         <p id="greetings">Greetings</p>
         <p id="welcomeOpen" class="uiButton">KittenOS</p>
-        <div style="display: flex;">
+        <div style="display: flex; justify-content: right;">
             <p id="date">Date</p>
             <pre> </pre>
             <p id="time">Time</p>
@@ -323,6 +322,22 @@
 
     </div>
 
+    <!-- Paw Weather -->
+    <div class="window" id="pawWeather" style="display: none;">
+        <div class="windowHeader" id="pawWeatherHeader">
+            <p style="margin-left: 10px;"><b>pawWeather</b></p>
+            <button class="closeButton " id="pawWeatherClose" style="margin-right: 10px;"></button>
+        </div>
+        
+        <div id="pawWeatherContent">
+           <div id="weatherFeed">
+                <div id="currentForecast"></div>
+                <div id="weeklyForecast"></div>
+           </div>
+        </div>
+
+    </div>
+
     <!-- Desktop Icons -->
     <div id="desktopApps" style="padding-top: 100px; padding-left: 20px; user-select: none;">
 
@@ -378,6 +393,11 @@
                     <img src="img/appIcons/PawCmd.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Cmd</p>
                 </div>
+                
+                <div class="icon " onclick="handleIconTap(this, pawWeatherScreen); resizeCanvas()" style="width: 80px;">
+                    <img src="img/appIcons/PawWeather.png" width="64px" style="border-radius: 12px;">
+                    <p style="margin: 0px;">Paw Weather</p>
+                </div>
             </div>
 
         </div>
@@ -428,6 +448,7 @@
     <script src="js/browser.js" defer></script>
     <script src="js/clicker.js" defer></script>
     <script src="js/cmd.js" defer></script>
+    <script src="js/weather.js" defer></script>
 
 </body>
 </html>
