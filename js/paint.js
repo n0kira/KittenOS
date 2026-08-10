@@ -11,8 +11,15 @@ canvas.height = canvas.clientHeight;
 
 let isPainting = false;
 let lineWidth = 5;
-
 let startX, statY;
+
+let undoArr = [];
+let redoArr = [];
+
+function saveState() {
+    undoArr.push(context.getImageData(0, 0, canvas.width, canvas.height));
+    redoArr = [];
+}
 
 function resizeCanvas() {
     canvas.width = canvas.clientWidth;
@@ -21,11 +28,16 @@ function resizeCanvas() {
     const color = document.getElementById('stroke');
     color.value = "#000000";
     context.strokeStyle = "#000000";
+
+    undoArr = [];
+    redoArr = [];
+    saveState();
 }
 
 toolbar.addEventListener("click", (e) => {
     if (e.target.id == "clear") {
         context.clearRect(0, 0, canvas.width, canvas.height);
+        saveState();
     }
 
     if (e.target.id == "savePng") {
@@ -35,6 +47,22 @@ toolbar.addEventListener("click", (e) => {
         downloadLink.href = img;
         downloadLink.download = "my-PawPrint.png";
         downloadLink.click();
+    }
+
+    if (e.target.id == "undoBtn") {
+        if (undoArr.length > 1) {
+            redoArr.push(undoArr.pop());
+            let previousState = undoArr[undoArr.length - 1];
+            context.putImageData(previousState, 0, 0);
+        }
+    }
+
+    if (e.target.id == "redoBtn") {
+        if (redoArr.length > 0) {
+            let nextState = redoArr.pop();
+            undoArr.push(nextState)
+            context.putImageData(nextState, 0, 0);
+        }
     }
 });
 
@@ -81,6 +109,7 @@ canvas.addEventListener("mousedown", (e) => {
 
 canvas.addEventListener("mouseup", (e) => {
     isPainting = false;
+    saveState();
 });
 
 canvas.addEventListener("mousemove", draw);

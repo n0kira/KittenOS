@@ -22,7 +22,13 @@
         - DONE! add background customization
         - DONE! add weather app
         - DONE! toggle date in top bar
-        - update README
+        - DONE! update README
+        - make windows resizable
+        - DONE! add undo/redo to paint app
+        - add error message to weather app if user doesn't allow for location access
+        - add more terminal commands
+        - make icons draggable on desktop
+        - make 2 more apps (another game?)
     -->
 
     <div id="topbar">
@@ -224,7 +230,6 @@
 
     </div>
 
-
     <!-- Paw Paint -->
     <div class="window" id="pawPaint" style="display: none;">
         <div class="windowHeader" id="pawPaintHeader">
@@ -246,7 +251,15 @@
                     </div>
                 </div>
                 
-               <div class="toolSection">
+                <div class="toolSection">
+                    <div class="tool">
+                        <button id="undoBtn">Undo</button>
+                    </div>
+    
+                    <div class="tool">
+                        <button id="redoBtn">Redo</button>
+                    </div>
+
                     <div class="tool">
                         <button class="uiButton" id="clear">Clear</button>
                     </div>
@@ -384,17 +397,17 @@
                     <p style="margin: 0px;">Paw Paint</p>
                 </div>
 
-                <div class="icon " onclick="handleIconTap(this, pawGameScreen); resizeCanvas()" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawGameScreen);" style="width: 80px;">
                     <img src="img/appIcons/PawGame.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Game</p>
                 </div>
                 
-                <div class="icon " onclick="handleIconTap(this, pawCmdScreen); resizeCanvas()" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawCmdScreen);" style="width: 80px;">
                     <img src="img/appIcons/PawCmd.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Cmd</p>
                 </div>
                 
-                <div class="icon " onclick="handleIconTap(this, pawWeatherScreen); resizeCanvas()" style="width: 80px;">
+                <div class="icon " onclick="handleIconTap(this, pawWeatherScreen);" style="width: 80px;">
                     <img src="img/appIcons/PawWeather.png" width="64px" style="border-radius: 12px;">
                     <p style="margin: 0px;">Paw Weather</p>
                 </div>
@@ -402,7 +415,7 @@
 
         </div>
 
-        <div class="icon " onclick="handleIconTap(this, folder); resizeCanvas()" style="width: 80px;">
+        <div class="icon " onclick="handleIconTap(this, folder);" style="width: 80px;">
             <img src="img/appIcons/Folder.png" width="64px" style="border-radius: 12px;">
             <p style="margin: 0px;">Paws Folder</p>
         </div>
