@@ -34,7 +34,7 @@ let content = [
         content: `
                 Hello again!
                 <br>
-                I am <b>nokira</b>, a high school student from Italy!
+                I am <b>nokira</b>
                 <br>
                 I'm really enjoying this journey because it's challenging but so rewarding! I am learning many new things and building actual websites :D
                 `
